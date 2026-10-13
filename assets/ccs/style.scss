@@ -1,7 +1,7 @@
-/* Target the main container of the theme and make it wider */
-.wrapper, 
-#main_content, 
-.container {
-    max-width: 90% !important; /* Changes the fixed width to 90% of your screen */
-    width: 1200px !important;   /* Or set a specific wide pixel value */
+---
+---
+@import "{{ site.theme }}";
+
+.inner {
+  max-width: 85%; /* Change to your preferred width or percentage */
 }
