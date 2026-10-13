@@ -1,7 +1,12 @@
----
----
 @import "{{ site.theme }}";
 
-.inner {
-  max-width: 85%; /* Change to your preferred width or percentage */
+/* Gör sajten bredare */
+.wrapper {
+  width: 960px;       /* Ändra till önskad bredd, t.ex. 1000px eller 90% */
+  max-width: 100%;    /* Säkerställer att det ser bra ut på mobilen */
+}
+
+section {
+  width: 700px;       /* Öka denna i proportion till .wrapper (standard är 500px) */
+  max-width: 100%;
 }
