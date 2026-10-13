@@ -1,12 +1,17 @@
+@import
+```-rad:
+
+```scss
 @import "{{ site.theme }}";
 
-/* Gör sajten bredare */
-.wrapper {
-  width: 960px;       /* Ändra till önskad bredd, t.ex. 1000px eller 90% */
-  max-width: 100%;    /* Säkerställer att det ser bra ut på mobilen */
+/* Gör Modernist-temat bredare */
+.inner {
+  max-width: 900px;   /* Standard är 640px. Ändra till t.ex. 900px eller 1000px */
+  width: 100%;        /* Säkerställer att den fortfarande krymper snyggt på mobilen */
 }
 
-section {
-  width: 700px;       /* Öka denna i proportion till .wrapper (standard är 500px) */
-  max-width: 100%;
+/* Valfritt: Justerar sidfoten så att den matchar den nya bredden */
+footer {
+  max-width: 900px;   /* Sätt samma värde här som på .inner ovan */
+  margin: 20px auto;
 }
