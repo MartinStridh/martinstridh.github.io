@@ -1,5 +1,7 @@
-/* Example to make the layout wider */
-.wrapper {
-  max-width: 1024px; /* Increases the maximum width from the default narrow size */
-  width: 90%;        /* Allows fluid scaling on smaller screens */
+/* Target the main container of the theme and make it wider */
+.wrapper, 
+#main_content, 
+.container {
+    max-width: 90% !important; /* Changes the fixed width to 90% of your screen */
+    width: 1200px !important;   /* Or set a specific wide pixel value */
 }
