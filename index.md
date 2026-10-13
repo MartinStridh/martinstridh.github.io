@@ -6,9 +6,7 @@ Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
 
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+An open research community dedicated to developing and applying the Lund ECG Parser software in ECG-related research.
 
 # Header 1
 
