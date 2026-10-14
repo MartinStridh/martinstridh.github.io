@@ -1,20 +1,10 @@
 ---
 ---
-
-@import
-```-rad:
-
-```scss
 @import "{{ site.theme }}";
 
-/* Gör Modernist-temat bredare */
-.inner {
-  max-width: 1900px;   /* Standard är 640px. Ändra till t.ex. 900px eller 1000px */
-  width: 100%;        /* Säkerställer att den fortfarande krymper snyggt på mobilen */
-}
-
-/* Valfritt: Justerar sidfoten så att den matchar den nya bredden */
-footer {
-  max-width: 1900px;   /* Sätt samma värde här som på .inner ovan */
-  margin: 20px auto;
+/* Gör sidan bredare och minska sidomarginalerna */
+.wrapper {
+  width: 95%;       /* Ökar bredden från standard (som är runt 860px) till 95% av skärmen */
+  max-width: 1100px; /* Sätter ett nytt, högre tak för hur bred sidan får bli på stora skärmar */
+  padding: 0 20px;   /* Minskar det fasta avståndet (padding) på sidorna till 20 pixlar */
 }
