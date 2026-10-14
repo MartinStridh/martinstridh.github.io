@@ -5,7 +5,7 @@
 @import "{{ site.theme }}";
 
 /* Gör Modernist-temat bredare */
-.inner {
+.wrapper {
   max-width: 1900px;   /* Standard är 640px. Ändra till t.ex. 900px eller 1000px */
   width: 100%;        /* Säkerställer att den fortfarande krymper snyggt på mobilen */
 }
