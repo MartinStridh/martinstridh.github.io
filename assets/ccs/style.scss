@@ -3,24 +3,40 @@ scss
 ---
 @import "{{ site.theme }}";
 
-.wrapper {
+/* Gör hela layouten bredare (Standard i Modernist är 640px) */
+.inner {
+  max-width: 1000px !important; /* Ändra till önskad totalbredd */
   width: 95% !important;
-  max-width: 1200px !important;
   margin: 0 auto !important;
 }
 
+/* Anpassa sidfoten så den matchar den nya bredden */
+footer {
+  max-width: 1000px !important; /* Samma som .inner ovan */
+  width: 95% !important;
+}
+
+/* Gör själva textytan bredare i förhållande till sidomenyn */
 section {
-  width: 70% !important;
+  width: 70% !important; /* Ger texten 70% av de 1000px */
   float: right !important;
 }
 
-@media screen and (max-width: 1200px) {
-  .wrapper {
+/* Justera sidomenyn (headern) så den ligger kvar snyggt till vänster */
+header {
+  width: 24% !important; /* Ger menyn 24% (lämnar 6% marginal) */
+  float: left !important;
+}
+
+/* Mobilanpassning: Stapla allt på högkant på mindre skärmar */
+@media screen and (max-width: 768px) {
+  .inner, footer {
     width: 100% !important;
-    padding: 0 15px !important;
+    padding: 0 20px !important;
   }
-  section {
-    width: 100% !important;
+  
+  header, section {
     float: none !important;
+    width: 100% !important;
   }
 }
