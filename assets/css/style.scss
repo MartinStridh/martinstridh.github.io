@@ -4,7 +4,7 @@
 
 @import "{{ site.theme }}";
 
-/* 2. Custom Wide Layout Rules (Scaled for a 1500px viewport) */
+/* 2. Custom Wide Layout Rules (Scaled for a 2000px viewport) */
 
 .wrapper {
   width: 1500px; /* Expands the master container */
@@ -13,23 +13,23 @@
 }
 
 header {
-  width: 320px; /* Allocates enough space for your wide sidebar navigation */
+  width: 100px; /* Allocates enough space for your wide sidebar navigation */
   float: left;
 }
 
 section {
-  width: 1100px; /* Expands content area to fill the remainder (1500px - 320px - margins) */
+  width: 1900px; /* Expands content area to fill the remainder (1500px - 320px - margins) */
   float: right;
 }
 
 footer {
-  width: 1100px; /* Matches the content column alignment */
+  width: 1300px; /* Matches the content column alignment */
   float: right;
   clear: right;
 }
 
 /* 3. Responsive Breakpoint (Maintains original theme mobile layout below 1500px) */
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 2000px) {
   .wrapper {
     width: auto;
   }
