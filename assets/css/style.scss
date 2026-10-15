@@ -12,9 +12,11 @@
 /* Adjust the main content area and sidebar if they look cramped */
 section {
   width: 70%;       /* Default is typically around 65-70% */
+  float: right;
 }
 
 aside {
   width: 25%;       /* Adjust sidebar width accordingly */
+  float: left;
 }
 
