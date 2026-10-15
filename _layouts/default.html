@@ -24,7 +24,7 @@
         }
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         {% if site.description or site.github.project_tagline %}
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
+          <h6>{{ site.description | default: site.github.project_tagline }}</h6>
         {% endif %}
         <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
         <ul>
