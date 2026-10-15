@@ -3,10 +3,10 @@
 @import "jekyll-theme-modernist";
 
 /* Din anpassade CSS här under */
-.inner {
-  max-width: 2000px !important; 
-  width: 100% !important;
-  margin: 0 auto !important;
+/* Increase total layout container width (Default is typically around 860px) */
+.wrapper {
+  width: 1500px; 
+  margin: 0 auto;
 }
 
 footer {
