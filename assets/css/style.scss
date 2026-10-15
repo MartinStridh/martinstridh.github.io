@@ -18,9 +18,10 @@ section { width: 80% !important;
 
 aside { width: 15% !important; 
   float: left !important; 
-  position: relative !important; /* Prevent default theme from hiding or pushing the sidebar */ 
+  position: relative !important; /* Prevent default theme from hiding or pushing the sidebar */
+  background-color: #dddddd !important; 
   display: block !important; } /* Clear floating issues */ 
 
 .wrapper::after { content: ""; 
   display: table; 
-  clear: both; }s
+  clear: both; }
