@@ -1,40 +1,20 @@
 ---
 ---
-/* 1. Define theme adjustments above the import if you want to use standard variables */
 
 @import "{{ site.theme }}";
 
-/* 2. Custom Wide Layout Rules (Scaled for a 2000px viewport) */
-
+/* Increase the maximum width of the content container */
 .wrapper {
-  width: 2300px; /* Expands the master container */
-  max-width: 95%; /* Provides clean viewport margins on smaller screens */
-  margin: 0 auto;
+  max-width: 960px; /* Adjust this value to your preferred width */
+  width: 100%;      /* Ensures responsiveness on smaller viewports */
 }
 
-header {
-  width: 2300px; /* Allocates enough space for your wide sidebar navigation */
-  float: left;
-}
-
+/* Adjust the main content area and sidebar if they look cramped */
 section {
-  width: 2100px; /* Expands content area to fill the remainder (1500px - 320px - margins) */
-  float: right;
+  width: 70%;       /* Default is typically around 65-70% */
 }
 
-footer {
-  width: 2300px; /* Matches the content column alignment */
-  float: right;
-  clear: right;
+aside {
+  width: 25%;       /* Adjust sidebar width accordingly */
 }
 
-/* 3. Responsive Breakpoint (Maintains original theme mobile layout below 1500px) */
-@media screen and (max-width: 2300px) {
-  .wrapper {
-    width: auto;
-  }
-  header, section, footer {
-    float: none;
-    width: 100%;
-  }
-}
