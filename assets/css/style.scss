@@ -3,28 +3,37 @@
 
 @import "{{ site.theme }}";
 
-/* Set the maximum width of the layout container */
+/* Force layout canvas to expand globally */
+body {
+  width: 100% !important;
+  max-width: 2500px !important;
+  margin: 0 auto !important;
+}
+
 .wrapper {
-  max-width: 2500px; 
-  width: 100%;      
-  box-sizing: border-box;
+  max-width: 2500px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  display: block !important;
 }
 
-/* Position the main content area (70% width, aligned right) */
+/* Force Main text to 70% width and align it to the RIGHT */
 section {
-  width: 70%;       
-  float: right;
-  box-sizing: border-box;
+  width: 70% !important;
+  float: right !important;
+  position: relative !important;
 }
 
-/* Position the sidebar menu area (30% width, aligned left) */
+/* Force Sidebar Menu to 30% width and align it to the LEFT */
 aside {
-  width: 30%;       
-  float: left;
-  box-sizing: border-box;
+  width: 30% !important;
+  float: left !important;
+  position: relative !important;
+  /* Prevent default theme from hiding or pushing the sidebar */
+  display: block !important; 
 }
 
-/* Clearfix to prevent layout collapse due to floated elements */
+/* Clear floating issues */
 .wrapper::after {
   content: "";
   display: table;
