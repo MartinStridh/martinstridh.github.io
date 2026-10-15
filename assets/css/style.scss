@@ -1,36 +1,40 @@
 ---
 ---
-@import "jekyll-theme-modernist";
+/* 1. Define theme adjustments above the import if you want to use standard variables */
 
-/* Din anpassade CSS här under */
-/* Increase total layout container width (Default is typically around 860px) */
+@import "{{ site.theme }}";
+
+/* 2. Custom Wide Layout Rules (Scaled for a 1500px viewport) */
+
 .wrapper {
-  width: 1500px; 
+  width: 1500px; /* Expands the master container */
+  max-width: 95%; /* Provides clean viewport margins on smaller screens */
   margin: 0 auto;
 }
 
-footer {
-  max-width: 960px !important;
-  width: 95% !important;
+header {
+  width: 320px; /* Allocates enough space for your wide sidebar navigation */
+  float: left;
 }
 
 section {
-  width: 100% !important; 
-  float: right !important;
+  width: 1100px; /* Expands content area to fill the remainder (1500px - 320px - margins) */
+  float: right;
 }
 
-header {
-  width: 100% !important;
-  float: left !important;
+footer {
+  width: 1100px; /* Matches the content column alignment */
+  float: right;
+  clear: right;
 }
 
-@media screen and (max-width: 2000px) {
-  .inner, footer {
-    width: 100% !important;
-    padding: 0 20px !important;
+/* 3. Responsive Breakpoint (Maintains original theme mobile layout below 1500px) */
+@media screen and (max-width: 1500px) {
+  .wrapper {
+    width: auto;
   }
-  header, section {
-    float: none !important;
-    width: 100% !important;
+  header, section, footer {
+    float: none;
+    width: 100%;
   }
 }
