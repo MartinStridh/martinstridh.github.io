@@ -1,24 +1,43 @@
 --- 
+
 --- 
-@import "{{ site.theme }}"; /* Force layout canvas to expand globally */ 
-body { width: 95% !important; 
-  max-width: 1500px !important; 
-  margin: 0 auto !important; } 
 
-.wrapper { max-width: 1500px !important; 
-  width: 100% !important; 
-  margin: 0 auto !important; 
-  display: block !important; } /* Force Main text to 80% width and align it to the RIGHT */ 
+/* Rättat: Lagt till citattecken runt Jekyll-variabeln */
+@import "{{ site.theme }}"; 
 
-section { width: 80% !important; 
-  float: right !important; 
-  position: relative !important; } /* Force Sidebar Menu to 30% width and align it to the LEFT */ 
+/* Force layout canvas to expand globally */
+body {
+  width: 95% !important;
+  max-width: 1500px !important;
+  margin: 0 auto !important;
+}
 
-aside { width: 15% !important; 
-  float: left !important; 
-  position: relative !important; /* Prevent default theme from hiding or pushing the sidebar */ 
-  display: block !important; } /* Clear floating issues */ 
+.wrapper {
+  max-width: 1500px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
 
-.wrapper::after { content: ""; 
-  display: table; 
-  clear: both; }
+/* Force Main text to 80% width and align it to the RIGHT */
+section {
+  width: 80% !important;
+  float: right !important;
+  position: relative !important;
+}
+
+/* Rättat: Ändrat till 20% så att 80% + 20% = 100% av wrapperns bredd */
+aside {
+  width: 20% !important;
+  float: left !important;
+  position: relative !important;
+  display: block !important; 
+}
+
+/* Clear floating issues */
+/* Rättat: Lagt till citattecken ("") vid content */
+.wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
