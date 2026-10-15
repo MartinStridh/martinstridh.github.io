@@ -19,9 +19,6 @@
   <body>
     <div class="wrapper">
       <header {% unless site.description or site.github.project_tagline %} class="without-description" {% endunless %}>
-        h1 {
-          font-size: 80px; /* Ändra till den storlek du vill ha */
-        }
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         {% if site.description or site.github.project_tagline %}
           <h6>{{ site.description | default: site.github.project_tagline }}</h6>
