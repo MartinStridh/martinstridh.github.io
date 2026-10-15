@@ -3,20 +3,30 @@
 
 @import "{{ site.theme }}";
 
-/* Increase the maximum width of the content container */
+/* Set the maximum width of the layout container */
 .wrapper {
-  max-width: 2000px; /* Adjust this value to your preferred width */
-  width: 100%;      /* Ensures responsiveness on smaller viewports */
+  max-width: 2500px; 
+  width: 100%;      
+  box-sizing: border-box;
 }
 
-/* Adjust the main content area and sidebar if they look cramped */
+/* Position the main content area (70% width, aligned right) */
 section {
-  width: 70%;       /* Default is typically around 65-70% */
+  width: 70%;       
   float: right;
+  box-sizing: border-box;
 }
 
+/* Position the sidebar menu area (30% width, aligned left) */
 aside {
-  width: 25%;       /* Adjust sidebar width accordingly */
+  width: 30%;       
   float: left;
+  box-sizing: border-box;
 }
 
+/* Clearfix to prevent layout collapse due to floated elements */
+.wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
