@@ -7,7 +7,7 @@
 /* 2. Custom Wide Layout Rules (Scaled for a 2000px viewport) */
 
 .wrapper {
-  width: 1500px; /* Expands the master container */
+  width: 2000px; /* Expands the master container */
   max-width: 95%; /* Provides clean viewport margins on smaller screens */
   margin: 0 auto;
 }
@@ -23,7 +23,7 @@ section {
 }
 
 footer {
-  width: 1300px; /* Matches the content column alignment */
+  width: 2000px; /* Matches the content column alignment */
   float: right;
   clear: right;
 }
