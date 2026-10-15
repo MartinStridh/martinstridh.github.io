@@ -1,80 +1,23 @@
-@import "{{ site.theme }}";
+--- --- 
+@import "{{ site.theme }}"; /* Force layout canvas to expand globally */ 
+body { width: 95% !important; 
+  max-width: 1500px !important; 
+  margin: 0 auto !important; } 
 
-/* --- GEMENSAMMA BASSTILAR --- */
-body {
-  width: 95% !important;
-  max-width: 1500px !important;
-  margin: 0 auto !important;
-}
+.wrapper { max-width: 1500px !important; 
+  width: 100% !important; 
+  margin: 0 auto !important; 
+  display: block !important; } /* Force Main text to 80% width and align it to the RIGHT */ 
 
-.wrapper {
-  max-width: 1500px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-  display: block !important;
-}
+section { width: 80% !important; 
+  float: right !important; 
+  position: relative !important; } /* Force Sidebar Menu to 30% width and align it to the LEFT */ 
 
-/* Clear floating issues för äldre webbläsare */
-.wrapper::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+aside { width: 15% !important; 
+  float: left !important; 
+  position: relative !important; /* Prevent default theme from hiding or pushing the sidebar */ 
+  display: block !important; } /* Clear floating issues */ 
 
-
-/* --- SKÄRMAR STÖRRE ÄN MOBILER (Dator/Surfplatta) --- */
-@media screen and (min-width: 768px) {
-  section {
-    width: 80% !important;
-    float: right !important;
-    position: relative !important;
-  }
-
-  aside {
-    width: 15% !important;
-    float: left !important;
-    position: relative !important;
-    display: block !important; 
-  }
-}
-
-
-/* --- MOBILER OCH SMÅ SKÄRMAR (Under 768px) --- */
-@media screen and (max-width: 767px) {
-  
-  /* Gör så att huvudinnehållet tar upp hela bredden under menyn */
-  section {
-    width: 100% !important;
-    float: none !important;
-    display: block !important;
-  }
-
-  /* Förvandlar aside till en liten väljare/bar högst upp */
-  aside {
-    width: 100% !important;
-    float: none !important;
-    display: block !important;
-    margin-bottom: 20px !important;
-    
-    /* Designa om aside så det ser ut som en väljarknapp/menybox */
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px !important;
-    box-sizing: border-box;
-  }
-
-  /* Om du har en lista (ul/li) inuti din aside, lägg dem på rad */
-  aside ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-
-  aside li {
-    margin: 5px;
-  }
-}
+.wrapper::after { content: ""; 
+  display: table; 
+  clear: both; }
