@@ -122,31 +122,40 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta den riktiga yttre behållaren som sparar sidomenyn
+    // 1. Hitta något som BARA finns i den äkta sidomenyn (t.ex. en länk i temat)
+    // Modernist använder alltid "wrapper" för huvudstrukturen
     var wrapper = document.querySelector(".wrapper");
     if (!wrapper) return;
 
-    // 2. Hitta den äkta sidomenyn direkt under wrapper (aldrig inuti section)
+    // Vi plockar ut det första elementet direkt under wrapper som inte är texten (section)
     var realSidebar = wrapper.querySelector(":scope > header") || wrapper.querySelector(":scope > aside");
+    
+    // SÄKERHETSSPÄRR: Om den ändå råkar ta fel, söker vi efter temats unika författar- eller GitHub-info
+    if (!realSidebar || realSidebar.closest("section")) {
+      var githubInfo = wrapper.querySelector("p.view") || wrapper.querySelector("ul.downloads") || wrapper.querySelector("h1");
+      if (githubInfo && !githubInfo.closest("section")) {
+        realSidebar = githubInfo.closest("header") || githubInfo.closest("aside");
+      }
+    }
 
+    // 2. Om vi har hittat den äkta menyn, aktivera hamburger-logiken
     if (realSidebar) {
-      // Skapa hamburgerknappen
+      realSidebar.setAttribute("id", "true-mobile-drawer");
+
       var menuBtn = document.createElement("button");
       menuBtn.className = "custom-menu-btn";
       menuBtn.innerHTML = "☰ Menu";
       document.body.appendChild(menuBtn);
 
-      // Klickfunktion för knappen
       menuBtn.addEventListener("click", function(e) {
         e.stopPropagation();
-        realSidebar.classList.toggle("mobile-drawer-active");
+        realSidebar.classList.toggle("drawer-is-open");
       });
 
-      // Stäng menyn om man klickar utanför den på skärmen
       document.addEventListener("click", function(e) {
-        if (realSidebar.classList.contains("mobile-drawer-active")) {
+        if (realSidebar.classList.contains("drawer-is-open")) {
           if (!realSidebar.contains(e.target) && e.target !== menuBtn) {
-            realSidebar.classList.remove("mobile-drawer-active");
+            realSidebar.classList.remove("drawer-is-open");
           }
         }
       });
