@@ -122,20 +122,32 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    document.body.addEventListener("click", function(e) {
-      // Safely target only the root sidebar, ignoring headers inside <section>
-      var sidebar = document.querySelector("body > header") || 
-                    document.querySelector(".wrapper > header") || 
-                    document.querySelector("body > aside") || 
-                    document.querySelector(".wrapper > aside");
-      
-      // If user clicks near the top-left where the button is
-      if (e.clientX < 100 && e.clientY < 60) {
-        if (sidebar) sidebar.classList.toggle("mobile-open");
-        e.stopPropagation();
-      } else if (sidebar && !sidebar.contains(e.target)) {
-        // Close menu if user clicks anywhere else outside the sidebar
-        sidebar.classList.remove("mobile-open");
+    // 1. Skapa en stabil HTML-knapp dynamiskt
+    var menuBtn = document.createElement("button");
+    menuBtn.className = "custom-menu-btn";
+    menuBtn.innerHTML = "☰ Menu";
+    document.body.appendChild(menuBtn);
+
+    // 2. Hitta rätt sidomeny (viktigt för Modernist-temat)
+    var sidebar = document.querySelector("body > header") || 
+                  document.querySelector(".wrapper > header") || 
+                  document.querySelector("body > aside") || 
+                  document.querySelector(".wrapper > aside");
+
+    // 3. Hantera klick på knappen
+    menuBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      if (sidebar) {
+        sidebar.classList.toggle("mobile-open");
+      }
+    });
+
+    // 4. Stäng menyn om man klickar utanför den ute på sidan
+    document.addEventListener("click", function(e) {
+      if (sidebar && sidebar.classList.contains("mobile-open")) {
+        if (!sidebar.contains(e.target) && e.target !== menuBtn) {
+          sidebar.classList.remove("mobile-open");
+        }
       }
     });
   });
