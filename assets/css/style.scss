@@ -37,60 +37,46 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Lås fast innehållssektionen och dina egna rubriker stabilt på skärmen */
+  /* 1. GÖM TEMATS TRASIGA MENY HELT OCH HÅLLET ON MOBILEN */
+  .wrapper > header, body > header, aside, .wrapper > aside {
+    display: none !important;
+  }
+
+  /* 2. Tvinga texten att ta full bredd under knappen */
   .wrapper > section, section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt knappen längst upp */
+    margin: 80px auto 0 auto !important; /* Ger plats åt knappen i toppen */
     display: block !important;
-    position: relative !important;
   }
 
-  /* Skydda din egen artikelrubrik från att döljas eller flyttas */
-  section header, section h1, section h2, .wrapper > section header {
+  /* 3. DIN EGNA RUBRIK: Låser fast den perfekt överst i texten */
+  .my-actual-page-title {
     display: block !important;
-    position: relative !important;
     visibility: visible !important;
     opacity: 1 !important;
     width: 100% !important;
+    margin: 10px 0 20px 0 !important;
   }
-
-  /* 2. Förvandla enbart den identifierade menyn till en dold sidopanel */
-  #my-true-mobile-sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    left: -280px !important; /* Dölj menyn utanför skärmen till vänster */
-    width: 240px !important;
-    height: 100% !important;
-    z-index: 9999 !important;
-    float: none !important;
-    padding: 80px 20px 20px 20px !important;
-    background-color: #eeeeee !important;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important;
-    overflow-y: auto !important;
+  
+  .my-actual-page-title h1 {
+    font-size: 26px !important;
     display: block !important;
+    margin: 0 !important;
   }
 
-  /* 3. Öppna rätt meny när klassen aktiveras av skriptet */
-  #my-true-mobile-sidebar.mobile-drawer-open {
-    left: 0 !important;
+  /* 4. SKAPA DEN SNYGGA HAMBURGERKNAPPEN */
+  .menu-toggle-input {
+    display: none !important; /* Göm själva kryssrutan */
   }
 
-  /* 4. GÖM TEMATS INBYGGDA MOBILMENY (Den som spökar i toppen) */
-  .wrapper > header:not(#my-true-mobile-sidebar), 
-  body > header:not(#my-true-mobile-sidebar) {
-    display: none !important;
-  }
-
-  /* 5. Hamburgerknappen */
-  .custom-menu-btn {
+  .hamburger-button {
     display: block !important;
     position: fixed !important;
     top: 15px;
     left: 15px;
-    z-index: 10000;
+    z-index: 10000; /* Ligger över allt annat */
     background: #333;
     color: #fff;
     padding: 10px 16px;
@@ -99,14 +85,52 @@ aside {
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
-    border: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+
+  /* 5. DESIGN FÖR SIDOPANELEN (Dold till vänster från början) */
+  .custom-mobile-drawer {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: -280px !important; /* Helt gömd utanför skärmen */
+    width: 240px !important;
+    height: 100% !important;
+    z-index: 9999 !important;
+    background-color: #eeeeee !important;
+    padding: 80px 20px 20px 20px !important;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
+    transition: left 0.3s ease-in-out !important; /* Snygg glidande animation */
+    overflow-y: auto;
+  }
+
+  /* 6. MAGIN: När man klickar på knappen (checkboxen blir ikryssad) glider menyn ut! */
+  .menu-toggle-input:checked ~ .custom-mobile-drawer {
+    left: 0 !important;
+  }
+  
+  /* Stil för länkarna inuti din nya mobilmeny */
+  .custom-mobile-drawer ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+  }
+  
+  .custom-mobile-drawer ul li {
+    margin: 15px 0 !important;
+  }
+  
+  .custom-mobile-drawer ul li a {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
   }
 }
 
-/* Dölj alltid knappen på vanliga stora datorskärmar */
+/* GÖM ALLA DESSA MOBILDELAR PÅ VANLIGA STORA DATORER */
 @media screen and (min-width: 769px) {
-  .custom-menu-btn {
+  .hamburger-button, .custom-mobile-drawer, .menu-toggle-input, .my-actual-page-title {
     display: none !important;
   }
 }
