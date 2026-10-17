@@ -125,44 +125,26 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    // 1. Hitta den äkta menyn genom att leta efter Modernist-temats unika innehåll
+    var wrapper = document.querySelector(".wrapper");
+    if (!wrapper) return;
+
+    // Leta efter nedladdningslänkar eller GitHub-info som bara finns i den riktiga menyn
+    var uniqueMenuElement = wrapper.querySelector("ul.downloads") || 
+                              wrapper.querySelector("p.view") || 
+                              wrapper.querySelector("header h1");
+    
     var realSidebar = null;
-    
-    // 1. Hitta alla möjliga element på toppnivå
-    var elements = document.querySelectorAll(".wrapper > header, .wrapper > aside, body > header, body > aside");
-    
-    for (var i = 0; i < elements.length; i++) {
-      var el = elements[i];
-      
-      // SÄKERHETSSPÄRR: Om elementet ligger inuti din textsektion är det GARANTERAT fel
-      if (el.closest("section")) continue;
-      
-      // Temats sidomeny innehåller nästan alltid text som "GitHub", "project", "download" eller "owner"
-      var textContent = el.innerHTML.toLowerCase();
-      if (textContent.includes("github") || textContent.includes("download") || textContent.includes("view the project")) {
-        realSidebar = el;
-        break;
-      }
-    }
-    
-    // Om vi mot förmodan inte hittade den via textinnehåll, ta det element som inte är en sektion
-    if (!realSidebar) {
-      var wrapper = document.querySelector(".wrapper");
-      if (wrapper) {
-        var children = wrapper.children;
-        for (var j = 0; j < children.length; j++) {
-          if (children[j].tagName !== "SECTION" && !children[j].querySelector("h1, h2, h3")) {
-            realSidebar = children[j];
-            break;
-          }
-        }
-      }
+    if (uniqueMenuElement) {
+      // Hitta den närmaste yttre header- eller aside-behållaren till det unika elementet
+      realSidebar = uniqueMenuElement.closest("header") || uniqueMenuElement.closest("aside");
     }
 
-    // 2. När vi har hittat den RIKTIGA menyn, kör vi igång
-    if (realSidebar) {
-      realSidebar.classList.add("my-actual-sidebar");
+    // 2. Aktivera hamburger-logiken enbart på den identifierade menyn
+    if (realSidebar && !realSidebar.closest("section")) {
+      realSidebar.setAttribute("id", "true-mobile-drawer");
 
-      // Skapa hamburgerknappen dynamiskt
+      // Skapa hamburgerknappen
       var menuBtn = document.createElement("button");
       menuBtn.className = "custom-menu-btn";
       menuBtn.innerHTML = "☰ Menu";
@@ -171,14 +153,14 @@ The final element.
       // Klickfunktion
       menuBtn.addEventListener("click", function(e) {
         e.stopPropagation();
-        realSidebar.classList.toggle("mobile-drawer-open");
+        realSidebar.classList.toggle("drawer-is-open");
       });
 
-      // Stäng menyn om man klickar utanför
+      // Stäng menyn vid klick utanför
       document.addEventListener("click", function(e) {
-        if (realSidebar.classList.contains("mobile-drawer-open")) {
+        if (realSidebar.classList.contains("drawer-is-open")) {
           if (!realSidebar.contains(e.target) && e.target !== menuBtn) {
-            realSidebar.classList.remove("mobile-drawer-open");
+            realSidebar.classList.remove("drawer-is-open");
           }
         }
       });
