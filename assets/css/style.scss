@@ -37,12 +37,12 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Låt innehållssektionen och dess interna rubriker ligga kvar normalt på sidan */
+  /* 1. Återställ och skydda alla vanliga sektioner och deras interna headers */
   section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt menyknappen i toppen */
+    margin: 80px auto 0 auto !important; /* Ger utrymme för menyknappen i toppen */
   }
 
   section header, section h1, section h2 {
@@ -51,8 +51,8 @@ aside {
     width: 100% !important;
   }
 
-  /* 2. Förvandla ENDAST den äkta sidomenyn till en mobilpanel */
-  #actual-main-sidebar {
+  /* 2. Förvandla ENDAST den riktiga sidomenyn till en panel */
+  #main-sidebar {
     position: fixed !important;
     top: 0;
     left: -280px; /* Helt dold till vänster från början */
@@ -69,11 +69,11 @@ aside {
   }
 
   /* 3. Öppet läge för rätt meny */
-  #actual-main-sidebar.mobile-open {
+  #main-sidebar.mobile-open {
     left: 0 !important; 
   }
 
-  /* 4. Hamburger-knappen */
+  /* 4. Skapa den fristående Hamburger-knappen */
   .custom-menu-btn {
     display: block !important;
     position: fixed !important;
@@ -93,7 +93,7 @@ aside {
   }
 }
 
-/* Dölj alltid knappen på vanliga datorskärmar */
+/* Göm knappen på vanliga datorskärmar */
 @media screen and (min-width: 769px) {
   .custom-menu-btn {
     display: none !important;
