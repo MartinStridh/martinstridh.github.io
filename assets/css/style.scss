@@ -37,17 +37,17 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Lås fast din innehållssektion och dina egna rubriker på skärmen */
+  /* 1. Håll kvar din innehållssektion stabilt på skärmen */
   .wrapper > section, section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt knappen högst upp */
+    margin: 80px auto 0 auto !important; /* Ger plats åt knappen */
     display: block !important;
     position: relative !important;
   }
 
-  /* Tvinga dina egna artiklar och interna page headers att alltid synas normalt */
+  /* Tvinga dina egna artiklar och interna page headers att alltid synas på sin plats */
   section header, section h1, section h2, .wrapper > section header {
     display: block !important;
     position: relative !important;
@@ -57,11 +57,11 @@ aside {
     margin: 10px 0 !important;
   }
 
-  /* 2. Förvandla enbart din ÄKTA sidomenyn till en dold sidopanel */
+  /* 2. Förvandla enbart den identifierade sidomenyn till en dold panel */
   .my-actual-sidebar {
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important; /* Flytta ut till vänster för att dölja */
+    left: -280px !important; /* Dölj till vänster */
     width: 240px !important;
     height: 100% !important;
     z-index: 9999 !important;
@@ -74,7 +74,7 @@ aside {
     display: block !important;
   }
 
-  /* 3. Öppna menyn när klassen aktiveras av JavaScript */
+  /* 3. Öppna menyn när man klickar */
   .my-actual-sidebar.mobile-drawer-open {
     left: 0 !important;
   }
