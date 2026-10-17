@@ -144,24 +144,30 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta den äkta menyn genom att leta efter Modernist-temats unika innehåll
     var wrapper = document.querySelector(".wrapper");
     if (!wrapper) return;
 
-    // Leta efter nedladdningslänkar eller GitHub-info som bara finns i den riktiga menyn
-    var uniqueMenuElement = wrapper.querySelector("ul.downloads") || 
-                              wrapper.querySelector("p.view") || 
-                              wrapper.querySelector("header h1");
-    
     var realSidebar = null;
-    if (uniqueMenuElement) {
-      // Hitta den närmaste yttre header- eller aside-behållaren till det unika elementet
-      realSidebar = uniqueMenuElement.closest("header") || uniqueMenuElement.closest("aside");
+
+    // 1. Skanna av ALLA headers/asides på sidan
+    var elements = document.querySelectorAll("header, aside");
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      
+      // En artikelrubrik ligger ALLTID inuti en <section>. Om den gör det, hoppa över!
+      if (el.closest("section")) continue;
+
+      // Temats äkta meny innehåller alltid ord som "github", "view" eller "download"
+      var content = el.innerHTML.toLowerCase();
+      if (content.includes("github") || content.includes("download") || content.includes("project")) {
+        realSidebar = el;
+        break;
+      }
     }
 
-    // 2. Aktivera hamburger-logiken enbart på den identifierade menyn
-    if (realSidebar && !realSidebar.closest("section")) {
-      realSidebar.setAttribute("id", "true-mobile-drawer");
+    // 2. Om vi hittade den äkta menyn, starta hamburger-logiken
+    if (realSidebar) {
+      realSidebar.setAttribute("id", "my-true-mobile-sidebar");
 
       // Skapa hamburgerknappen
       var menuBtn = document.createElement("button");
@@ -169,17 +175,17 @@ The final element.
       menuBtn.innerHTML = "☰ Menu";
       document.body.appendChild(menuBtn);
 
-      // Klickfunktion
+      // Klickfunktion för att öppna/stänga
       menuBtn.addEventListener("click", function(e) {
         e.stopPropagation();
-        realSidebar.classList.toggle("drawer-is-open");
+        realSidebar.classList.toggle("mobile-drawer-open");
       });
 
       // Stäng menyn vid klick utanför
       document.addEventListener("click", function(e) {
-        if (realSidebar.classList.contains("drawer-is-open")) {
+        if (realSidebar.classList.contains("mobile-drawer-open")) {
           if (!realSidebar.contains(e.target) && e.target !== menuBtn) {
-            realSidebar.classList.remove("drawer-is-open");
+            realSidebar.classList.remove("mobile-drawer-open");
           }
         }
       });
