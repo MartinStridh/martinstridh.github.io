@@ -2,25 +2,6 @@
 layout: default
 ---
 
-<!-- Hamburger-knapp (Styrs helt via en dold checkbox i CSS) -->
-<input type="checkbox" id="menu-toggle-checkbox" class="menu-toggle-input">
-<label for="menu-toggle-checkbox" class="hamburger-button">☰ Menu</label>
-
-<!-- Den snygga sidomenyn som glider ut från vänster -->
-<div class="custom-mobile-drawer">
-  <h3>Navigering</h3>
-  <ul>
-    <li><a href="/">Hem</a></li>
-    <li><a href="/om">Om mig</a></li>
-    <li><a href="/kontakt">Kontakt</a></li>
-  </ul>
-</div>
-
-<!-- Din egen artikelrubrik (Skyddad med en unik klass så den ALDRIG försvinner) -->
-<div class="my-actual-page-title">
-  <h1>Här är din artikelrubrik</h1>
-</div>
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
