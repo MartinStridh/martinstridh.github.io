@@ -119,3 +119,24 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.addEventListener("click", function(e) {
+      // Safely target only the root sidebar, ignoring headers inside <section>
+      var sidebar = document.querySelector("body > header") || 
+                    document.querySelector(".wrapper > header") || 
+                    document.querySelector("body > aside") || 
+                    document.querySelector(".wrapper > aside");
+      
+      // If user clicks near the top-left where the button is
+      if (e.clientX < 100 && e.clientY < 60) {
+        if (sidebar) sidebar.classList.toggle("mobile-open");
+        e.stopPropagation();
+      } else if (sidebar && !sidebar.contains(e.target)) {
+        // Close menu if user clicks anywhere else outside the sidebar
+        sidebar.classList.remove("mobile-open");
+      }
+    });
+  });
+</script>
