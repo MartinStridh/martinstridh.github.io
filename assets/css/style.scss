@@ -2,26 +2,85 @@
 
 --- 
 
-@import "{{ site.theme }}"; /* Force layout canvas to expand globally */ 
-body { width: 95% !important; 
-  max-width: 1500px !important; 
-  margin: 0 auto !important; } 
+@import "{{ site.theme }}";
 
-.wrapper { max-width: 1500px !important; 
-  width: 100% !important; 
-  margin: 0 auto !important; 
-  display: block !important; } /* Force Main text to 80% width and align it to the RIGHT */ 
+/* 💻 Your Custom Desktop Rules (Kept from your original layout) */
+body {
+  width: 95% !important;
+  max-width: 1500px !important;
+  margin: 0 auto !important;
+}
+.wrapper {
+  max-width: 1500px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+section {
+  width: 80% !important;
+  float: right !important;
+  position: relative !important;
+}
+header {
+  width: 15% !important;
+  float: left !important;
+  position: relative !important;
+  background-color: #dddddd !important;
+  display: block !important;
+}
+.wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-section { width: 80% !important; 
-  float: right !important; 
-  position: relative !important; } /* Force Sidebar Menu to 30% width and align it to the LEFT */ 
+/* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
+@media screen and (max-width: 768px) {
+  
+  /* 1. Make content block fill the screen full-width */
+  section {
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+  }
 
-aside { width: 15% !important; 
-  float: left !important; 
-  position: relative !important; /* Prevent default theme from hiding or pushing the sidebar */
-  background-color: #dddddd !important; 
-  display: block !important; } /* Clear floating issues */ 
+  /* 2. Turn the Header (Sidebar) into an off-screen drawer panel */
+  header {
+    position: fixed !important;
+    top: 0;
+    left: -260px; /* Fully hidden off-screen to start */
+    width: 240px !important;
+    height: 100%;
+    z-index: 999;
+    float: none !important;
+    padding: 60px 20px 20px 20px !important;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.2);
+    background-color: #eeeeee !important;
+    transition: left 0.3s ease-in-out; /* Smooth slide out animate */
+  }
 
-.wrapper::after { content: ""; 
-  display: table; 
-  clear: both; }
+  /* 3. Create a CSS Hamburger Toggle without changing HTML */
+  body::before {
+    content: "☰ Menu";
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background: #333;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-family: sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  /* 4. Trigger the open state using a hover or focus trick */
+  body:hover header, 
+  body:active header,
+  header:hover {
+    left: 0 !important; /* Slide the panel into view */
+  }
+}
