@@ -120,4 +120,52 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 The final element.
 ```
 
+<!-- Vi skapar ett dolt element som hjälper skriptet att hitta din sidomeny -->
+<span id="sidebar-marker" style="display:none;"></span>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Hitta din äkta sidomeny på ett smart sätt utan att gissa taggar
+    var marker = document.getElementById("sidebar-marker");
+    var wrapper = document.querySelector(".wrapper") || document.body;
+    var realSidebar = null;
+
+    if (wrapper) {
+      // Vi plockar det element på toppnivå i wrapper som inte är din sektion
+      var children = wrapper.children;
+      for (var i = 0; i < children.length; i++) {
+        if (children[i].tagName !== "SECTION" && children[i].id !== "sidebar-marker") {
+          // Detta är din äkta sidomeny (oavsett om det är en header eller aside)
+          realSidebar = children[i];
+          break;
+        }
+      }
+    }
+
+    // 2. Om vi hittade den äkta menyn, ge den en unik klass och starta hamburger-logiken
+    if (realSidebar) {
+      realSidebar.classList.add("my-actual-sidebar");
+
+      // Skapa hamburgerknappen dynamiskt
+      var menuBtn = document.createElement("button");
+      menuBtn.className = "custom-menu-btn";
+      menuBtn.innerHTML = "☰ Menu";
+      document.body.appendChild(menuBtn);
+
+      // Klickfunktion för att öppna/stänga
+      menuBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        realSidebar.classList.toggle("mobile-drawer-open");
+      });
+
+      // Stäng menyn om man klickar utanför den på skärmen
+      document.addEventListener("click", function(e) {
+        if (realSidebar.classList.contains("mobile-drawer-open")) {
+          if (!realSidebar.contains(e.target) && e.target !== menuBtn) {
+            realSidebar.classList.remove("mobile-drawer-open");
+          }
+        }
+      });
+    }
+  });
+</script>
