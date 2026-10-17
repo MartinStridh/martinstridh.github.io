@@ -78,9 +78,9 @@ aside {
   }
 
   /* 4. Trigger the open state using a hover or focus trick */
-  body:hover header, 
-  body:active header,
-  header:hover {
+  body:hover aside, 
+  body:active aside,
+  aside:hover {
     left: 0 !important; /* Slide the panel into view */
   }
 }
