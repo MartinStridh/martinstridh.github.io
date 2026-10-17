@@ -122,15 +122,17 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta den faktiska globala sidomenyn i Modernist (ligger utanför <section>)
-    var realSidebar = document.querySelector(".wrapper > header") || 
-                      document.querySelector("body > header") || 
-                      document.querySelector(".wrapper > aside") || 
-                      document.querySelector("body > aside");
+    // 1. Hitta ENBART den äkta sidomenyn baserat på Modernists unika struktur
+    var realSidebar = document.querySelector(".wrapper > header");
 
-    // Om vi hittar den, ge den ett unikt ID så att CSS:en träffar rätt
+    // Om din layout använder 'aside' istället, kollar vi det som reserv
+    if (!realSidebar) {
+      realSidebar = document.querySelector(".wrapper > aside");
+    }
+
+    // Ge den rätta sidomenyn ett helt unikt ID direkt
     if (realSidebar) {
-      realSidebar.setAttribute("id", "main-sidebar");
+      realSidebar.setAttribute("id", "actual-main-sidebar");
     }
 
     // 2. Skapa hamburgerknappen
@@ -142,7 +144,7 @@ The final element.
     // 3. Hantera klick på knappen
     menuBtn.addEventListener("click", function(e) {
       e.stopPropagation();
-      var sidebar = document.getElementById("main-sidebar");
+      var sidebar = document.getElementById("actual-main-sidebar");
       if (sidebar) {
         sidebar.classList.toggle("mobile-open");
       }
@@ -150,7 +152,7 @@ The final element.
 
     // 4. Stäng menyn om man klickar utanför den ute på sidan
     document.addEventListener("click", function(e) {
-      var sidebar = document.getElementById("main-sidebar");
+      var sidebar = document.getElementById("actual-main-sidebar");
       if (sidebar && sidebar.classList.contains("mobile-open")) {
         if (!sidebar.contains(e.target) && e.target !== menuBtn) {
           sidebar.classList.remove("mobile-open");
