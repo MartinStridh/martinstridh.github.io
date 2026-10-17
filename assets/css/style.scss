@@ -37,70 +37,52 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Lås fast din text och artikelrubriker på skärmen */
-  .wrapper > section {
-    width: 95% !important;
+  /* 1. Tvinga din textsektion att ta 100% bredd så att ingenting knuffas i sidled */
+  .wrapper > section, section {
+    width: 100% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt knappen */
     display: block !important;
+    margin: 0 auto !important;
   }
 
-  /* Skydda dina artiklar och deras interna headers från att flyttas */
-  .wrapper > section header, 
-  .wrapper > section h1, 
-  .wrapper > section h2 {
+  /* 2. Tillåt ALLA dina egna interna rubriker och page headers att synas normalt */
+  section header, section h1, section h2, .wrapper > section header {
+    display: block !important;
     position: relative !important;
-    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     width: 100% !important;
-    margin: 10px 0 !important;
+    margin: 20px 0 !important;
   }
 
-  /* 2. Förvandla den ÄKTA sidomenyn till en dold sidopanel */
-  #true-mobile-drawer {
-    position: fixed !important;
-    top: 0 !important;
-    left: -280px !important; /* Flytta ut från skärmen till vänster */
-    width: 240px !important;
-    height: 100% !important;
-    z-index: 9999 !important;
+  /* 3. Hantera den gamla temamenyn (som spökar i toppen eller sidan) */
+  /* Vi förvandlar den till en ren, snygg och liggande lista överst på skärmen istället för en trasig sidomeny */
+  .wrapper > header, .wrapper > aside, aside {
+    position: relative !important;
     float: none !important;
-    padding: 80px 20px 20px 20px !important;
-    background-color: #eeeeee !important;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important;
-    overflow-y: auto !important;
+    width: 100% !important;
+    clear: both !important;
     display: block !important;
+    background-color: #f4f4f4 !important; /* Ljus, ren bakgrund */
+    padding: 15px !important;
+    margin: 0 0 20px 0 !important;
+    border-bottom: 2px solid #ddd !important;
+    left: 0 !important; /* Säkerställ att den inte flyger i sidled */
   }
 
-  /* 3. Öppna ENBART rätt meny när klassen aktiveras */
-  #true-mobile-drawer.drawer-is-open {
-    left: 0 !important;
+  /* Gör så att länkarna i menyn lägger sig bredvid varandra istället för i en lång korridor */
+  .wrapper > header ul, aside ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 10px 0 0 0 !important;
+    gap: 10px !important;
   }
 
-  /* 4. Hamburgerknappen */
-  .custom-menu-btn {
-    display: block !important;
-    position: fixed !important;
-    top: 15px;
-    left: 15px;
-    z-index: 10000;
-    background: #333;
-    color: #fff;
-    padding: 10px 16px;
-    font-size: 15px;
-    font-family: sans-serif;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    border: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  }
-}
-
-/* Dölj alltid knappen på datorskärmar */
-@media screen and (min-width: 769px) {
-  .custom-menu-btn {
-    display: none !important;
+  .wrapper > header ul li, aside ul li {
+    display: inline-block !important;
+    margin: 0 !important;
   }
 }
