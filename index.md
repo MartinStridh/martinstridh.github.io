@@ -125,24 +125,40 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta din äkta sidomeny på ett smart sätt utan att gissa taggar
-    var marker = document.getElementById("sidebar-marker");
-    var wrapper = document.querySelector(".wrapper") || document.body;
     var realSidebar = null;
-
-    if (wrapper) {
-      // Vi plockar det element på toppnivå i wrapper som inte är din sektion
-      var children = wrapper.children;
-      for (var i = 0; i < children.length; i++) {
-        if (children[i].tagName !== "SECTION" && children[i].id !== "sidebar-marker") {
-          // Detta är din äkta sidomeny (oavsett om det är en header eller aside)
-          realSidebar = children[i];
-          break;
+    
+    // 1. Hitta alla möjliga element på toppnivå
+    var elements = document.querySelectorAll(".wrapper > header, .wrapper > aside, body > header, body > aside");
+    
+    for (var i = 0; i < elements.length; i++) {
+      var el = elements[i];
+      
+      // SÄKERHETSSPÄRR: Om elementet ligger inuti din textsektion är det GARANTERAT fel
+      if (el.closest("section")) continue;
+      
+      // Temats sidomeny innehåller nästan alltid text som "GitHub", "project", "download" eller "owner"
+      var textContent = el.innerHTML.toLowerCase();
+      if (textContent.includes("github") || textContent.includes("download") || textContent.includes("view the project")) {
+        realSidebar = el;
+        break;
+      }
+    }
+    
+    // Om vi mot förmodan inte hittade den via textinnehåll, ta det element som inte är en sektion
+    if (!realSidebar) {
+      var wrapper = document.querySelector(".wrapper");
+      if (wrapper) {
+        var children = wrapper.children;
+        for (var j = 0; j < children.length; j++) {
+          if (children[j].tagName !== "SECTION" && !children[j].querySelector("h1, h2, h3")) {
+            realSidebar = children[j];
+            break;
+          }
         }
       }
     }
 
-    // 2. Om vi hittade den äkta menyn, ge den en unik klass och starta hamburger-logiken
+    // 2. När vi har hittat den RIKTIGA menyn, kör vi igång
     if (realSidebar) {
       realSidebar.classList.add("my-actual-sidebar");
 
@@ -152,13 +168,13 @@ The final element.
       menuBtn.innerHTML = "☰ Menu";
       document.body.appendChild(menuBtn);
 
-      // Klickfunktion för att öppna/stänga
+      // Klickfunktion
       menuBtn.addEventListener("click", function(e) {
         e.stopPropagation();
         realSidebar.classList.toggle("mobile-drawer-open");
       });
 
-      // Stäng menyn om man klickar utanför den på skärmen
+      // Stäng menyn om man klickar utanför
       document.addEventListener("click", function(e) {
         if (realSidebar.classList.contains("mobile-drawer-open")) {
           if (!realSidebar.contains(e.target) && e.target !== menuBtn) {
@@ -169,3 +185,4 @@ The final element.
     }
   });
 </script>
+
