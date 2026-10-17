@@ -37,39 +37,42 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Återställ och skydda alla vanliga sektioner och deras interna headers */
+  /* 1. Skydda din innehållssektion och tvinga den att ligga kvar normalt på sidan */
   section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger utrymme för menyknappen i toppen */
+    margin: 80px auto 0 auto !important; /* Ger plats åt menyknappen i toppen */
+    display: block !important;
   }
 
+  /* Tvinga dina artiklar och interna rubriker att bete sig som vanligt */
   section header, section h1, section h2 {
     position: relative !important;
     display: block !important;
-    width: 95% !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
   }
 
-  /* 2. Förvandla ENDAST den riktiga sidomenyn till en panel */
-  #main-sidebar {
+  /* 2. Förvandla den isolerade sidomenyn till en stabil mobilpanel */
+  #mobile-drawer-menu {
     position: fixed !important;
-    top: 0;
-    left: -280px; /* Helt dold till vänster från början */
+    top: 0 !important;
+    left: -280px !important; /* Helt dold till vänster från början */
     width: 240px !important;
-    height: 100%;
-    z-index: 9999;
+    height: 100% !important;
+    z-index: 9999 !important;
     float: none !important;
     padding: 80px 20px 20px 20px !important;
     background-color: #eeeeee !important;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
-    transition: left 0.3s ease-in-out;
-    overflow-y: auto;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
+    transition: left 0.3s ease-in-out !important;
+    overflow-y: auto !important;
     display: block !important;
   }
 
   /* 3. Öppet läge för rätt meny */
-  #main-sidebar.mobile-open {
+  #mobile-drawer-menu.mobile-open {
     left: 0 !important; 
   }
 
@@ -93,7 +96,7 @@ aside {
   }
 }
 
-/* Göm knappen på vanliga datorskärmar */
+/* Dölj alltid knappen på datorskärmar */
 @media screen and (min-width: 769px) {
   .custom-menu-btn {
     display: none !important;
