@@ -45,7 +45,7 @@ aside {
   }
 
   /* 2. Turn the Header (Sidebar) into an off-screen drawer panel */
-  header {
+  aside {
     position: fixed !important;
     top: 0;
     left: -260px; /* Fully hidden off-screen to start */
