@@ -37,16 +37,16 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Lås fast innehållssektionen och dess interna rubriker på skärmen */
+  /* 1. Lås fast din text och artikelrubriker på skärmen */
   .wrapper > section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt knappen längst upp */
+    margin: 80px auto 0 auto !important; /* Ger plats åt knappen */
     display: block !important;
   }
 
-  /* Skydda dina artiklar och interna headers från att flyttas */
+  /* Skydda dina artiklar och deras interna headers från att flyttas */
   .wrapper > section header, 
   .wrapper > section h1, 
   .wrapper > section h2 {
@@ -56,11 +56,11 @@ aside {
     margin: 10px 0 !important;
   }
 
-  /* 2. Blockera Modernist från att lägga originalmenyn överst på skärmen */
-  .wrapper > header, .wrapper > aside {
+  /* 2. Förvandla den ÄKTA sidomenyn till en dold sidopanel */
+  #true-mobile-drawer {
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important; /* Dölj menyn säkert utanför vänsterkanten */
+    left: -280px !important; /* Flytta ut från skärmen till vänster */
     width: 240px !important;
     height: 100% !important;
     z-index: 9999 !important;
@@ -73,9 +73,8 @@ aside {
     display: block !important;
   }
 
-  /* 3. Öppna ENBART rätt meny när klassen aktiveras av JavaScript */
-  .wrapper > header.mobile-drawer-active, 
-  .wrapper > aside.mobile-drawer-active {
+  /* 3. Öppna ENBART rätt meny när klassen aktiveras */
+  #true-mobile-drawer.drawer-is-open {
     left: 0 !important;
   }
 
