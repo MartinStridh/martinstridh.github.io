@@ -37,19 +37,25 @@ aside {
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
 @media screen and (max-width: 768px) {
   
-  /* 1. Säkerställ att sidhuvudet och artiklar i sektionen inte försvinner */
+  /* 1. Återställ och skydda alla vanliga sektioner och deras interna headers */
   section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger utrymme för knappen längst upp */
+    margin: 80px auto 0 auto !important; /* Ger utrymme för menyknappen i toppen */
   }
 
-  /* 2. Isolera enbart huvud-sidomenyn (Modernist använder 'header' som wrapper) */
-  body > header, .wrapper > header, body > aside, .wrapper > aside {
+  section header, section h1, section h2 {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* 2. Förvandla ENDAST den riktiga sidomenyn till en panel */
+  #main-sidebar {
     position: fixed !important;
     top: 0;
-    left: -280px; /* Gömd utanför skärmen till vänster */
+    left: -280px; /* Helt dold till vänster från början */
     width: 240px !important;
     height: 100%;
     z-index: 9999;
@@ -59,21 +65,21 @@ aside {
     box-shadow: 4px 0 15px rgba(0,0,0,0.3);
     transition: left 0.3s ease-in-out;
     overflow-y: auto;
+    display: block !important;
   }
 
-  /* 3. Öppet läge för menyn */
-  body > header.mobile-open, .wrapper > header.mobile-open, 
-  body > aside.mobile-open, .wrapper > aside.mobile-open {
+  /* 3. Öppet läge för rätt meny */
+  #main-sidebar.mobile-open {
     left: 0 !important; 
   }
 
-  /* 4. En helt fristående knapp som inte stör sidans övriga element */
+  /* 4. Skapa den fristående Hamburger-knappen */
   .custom-menu-btn {
     display: block !important;
     position: fixed !important;
     top: 15px;
     left: 15px;
-    z-index: 10000; /* Ligger över allt annat */
+    z-index: 10000;
     background: #333;
     color: #fff;
     padding: 10px 16px;
