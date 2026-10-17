@@ -122,40 +122,42 @@ The final element.
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta den faktiska globala sidomenyn i Modernist (ligger utanför <section>)
-    var realSidebar = document.querySelector(".wrapper > header") || 
-                      document.querySelector("body > header") || 
-                      document.querySelector(".wrapper > aside") || 
-                      document.querySelector("body > aside");
+    // 1. Hitta alla headers/asides på hela sidan
+    var candidates = document.querySelectorAll("header, aside");
+    var targetSidebar = null;
 
-    // Om vi hittar den, ge den ett unikt ID så att CSS:en träffar rätt
-    if (realSidebar) {
-      realSidebar.setAttribute("id", "main-sidebar");
+    // 2. Loopa igenom dem och välj BARA den som INTE ligger inuti en <section>
+    for (var i = 0; i < candidates.length; i++) {
+      if (!candidates[i].closest("section")) {
+        targetSidebar = candidates[i];
+        break;
+      }
     }
 
-    // 2. Skapa hamburgerknappen
-    var menuBtn = document.createElement("button");
-    menuBtn.className = "custom-menu-btn";
-    menuBtn.innerHTML = "☰ Menu";
-    document.body.appendChild(menuBtn);
+    // 3. Om vi hittar den äkta menyn, aktivera funktionaliteten
+    if (targetSidebar) {
+      targetSidebar.setAttribute("id", "mobile-drawer-menu");
 
-    // 3. Hantera klick på knappen
-    menuBtn.addEventListener("click", function(e) {
-      e.stopPropagation();
-      var sidebar = document.getElementById("main-sidebar");
-      if (sidebar) {
-        sidebar.classList.toggle("mobile-open");
-      }
-    });
+      // Skapa hamburgerknappen dynamiskt
+      var menuBtn = document.createElement("button");
+      menuBtn.className = "custom-menu-btn";
+      menuBtn.innerHTML = "☰ Menu";
+      document.body.appendChild(menuBtn);
 
-    // 4. Stäng menyn om man klickar utanför den ute på sidan
-    document.addEventListener("click", function(e) {
-      var sidebar = document.getElementById("main-sidebar");
-      if (sidebar && sidebar.classList.contains("mobile-open")) {
-        if (!sidebar.contains(e.target) && e.target !== menuBtn) {
-          sidebar.classList.remove("mobile-open");
+      // Hantera klick för att öppna/stänga
+      menuBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        targetSidebar.classList.toggle("mobile-open");
+      });
+
+      // Stäng menyn om man klickar utanför den ute på sidan
+      document.addEventListener("click", function(e) {
+        if (targetSidebar.classList.contains("mobile-open")) {
+          if (!targetSidebar.contains(e.target) && e.target !== menuBtn) {
+            targetSidebar.classList.remove("mobile-open");
+          }
         }
-      }
-    });
+      });
+    }
   });
 </script>
