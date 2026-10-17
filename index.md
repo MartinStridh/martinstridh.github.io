@@ -1,3 +1,22 @@
+
+<!-- Enkel och stabil hamburgerknapp för mobilen -->
+<button class="custom-menu-btn" onclick="document.getElementById('my-mobile-menu').classList.toggle('drawer-open')">☰ Menu</button>
+
+<!-- En stabil mobilrubrik som ALDRIG kan flytta på sig -->
+<div class="custom-mobile-title">
+  <h1>Min Hemsida</h1>
+</div>
+
+<!-- En dedikerad mobilsidomeny (Kopiera dina menylänkar hit inuti <ul>) -->
+<div id="my-mobile-menu" class="custom-mobile-drawer">
+  <h3>Navigering</h3>
+  <ul>
+    <li><a href="/">Hem</a></li>
+    <li><a href="/om">Om</a></li>
+    <!-- Lägg till dina egna menylänkar här -->
+  </ul>
+</div>
+
 ---
 layout: default
 ---
