@@ -42,24 +42,32 @@ aside {
     width: 95% !important;
     float: none !important;
     clear: both !important;
+    margin: 60px auto 0 auto !important; /* Pushes content down so the button doesn't block it */
   }
 
-  /* 2. Turn the Header (Sidebar) into an off-screen drawer panel */
-  aside {
+  /* 2. Turn ONLY the top-level Sidebar into an off-screen drawer panel */
+  body > header, .wrapper > header, body > aside, .wrapper > aside {
     position: fixed !important;
     top: 0;
-    left: -260px; /* Fully hidden off-screen to start */
+    left: -280px; /* Fully hidden off-screen to start */
     width: 240px !important;
     height: 100%;
     z-index: 999;
     float: none !important;
-    padding: 60px 20px 20px 20px !important;
+    padding: 70px 20px 20px 20px !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.2);
     background-color: #eeeeee !important;
-    transition: left 0.3s ease-in-out; /* Smooth slide out animate */
+    transition: left 0.3s ease-in-out; /* Smooth slide animation */
+    overflow-y: auto; /* Allows scrolling if menu is long */
   }
 
-  /* 3. Create a CSS Hamburger Toggle without changing HTML */
+  /* 3. The open state triggered by the JavaScript class */
+  body > header.mobile-open, .wrapper > header.mobile-open, 
+  body > aside.mobile-open, .wrapper > aside.mobile-open {
+    left: 0 !important; 
+  }
+
+  /* 4. Create the visible Hamburger Button */
   body::before {
     content: "☰ Menu";
     position: fixed;
@@ -75,12 +83,5 @@ aside {
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  }
-
-  /* 4. Trigger the open state using a hover or focus trick */
-  body:hover aside, 
-  body:active aside,
-  aside:hover {
-    left: 0 !important; /* Slide the panel into view */
   }
 }
