@@ -123,13 +123,13 @@ The final element.
 <!-- Hamburgerknappen för touch-skärmar -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
 
-<!-- Den fristående touch-sidopanelen med dina länkar -->
+<!-- Den fristående touch-sidopanelen med dina RIKTIGA länkar -->
 <div id="clean-mobile-drawer" class="custom-mobile-drawer">
   <h3>Navigering</h3>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/lund-ecg-parser">Lund ECG Parser</a></li>
-    <!-- Lägg till eventuella fler länkar här på samma sätt -->
+    <!-- Om du har fler länkar i din meny, lägg till dem här på samma sätt -->
   </ul>
 </div>
 
