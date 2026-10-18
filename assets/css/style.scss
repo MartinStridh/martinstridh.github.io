@@ -3,7 +3,7 @@
 @import "{{ site.theme }}"; 
 
 /* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Lämnas orörd)
+   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd så att storskärmen blir rätt)
    ========================================================================== */
 body { 
   width: 95% !important; 
@@ -35,25 +35,26 @@ aside {
 }
 
 /* ==========================================================================
-   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Under 768px)
+   📱 2. FIX FÖR ATT STOPPA SAMBANBLANDNING PÅ MOBIL & SURFPLATTA (Under 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
   
-  /* Ta bort eventuella rester av gamla CSS-knappar */
+  /* Ta bort eventuella gamla CSS-knappar som spökar */
   body::before {
     display: none !important;
   }
 
-  /* 1. Tvinga innehållet till full bredd under knappen */
+  /* 1. Bredda din innehållstext så att den flyter på normalt */
   section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger utrymme för knappen */
+    margin: 80px auto 0 auto !important; /* Ger plats åt knappen längst upp */
     display: block !important;
   }
 
-  /* 2. 🔥 FIXA ARTIKELRUBRIKEN: Rädda dina rubriker från att gömmas av temat globalt */
+  /* 2. 🔥 RÄDDA DIN ARTIKELRUBRIK: Tvinga dina egna rubriker att ligga kvar synliga */
+  /* Genom att skriva 'section header' blockerar vi temats försök att stjäla din rubrik */
   section header, 
   section h1, 
   section h2, 
@@ -64,13 +65,14 @@ aside {
     visibility: visible !important;
     opacity: 1 !important;
     width: 100% !important;
+    margin: 10px 0 !important;
   }
 
-  /* 3. DESIGN FÖR DEN GLIDANDE MOBILMENYN (Triggers via ID-namnet) */
-  #my-true-mobile-drawer {
+  /* 3. LÅS FAST OCH GÖM DEN ÄKTA MENYN I EN SIDOPANEL */
+  #locked-mobile-drawer {
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important; /* Helt gömd till vänster till en början */
+    left: -280px !important; /* Dölj säkert till vänster */
     width: 240px !important;
     height: 100% !important;
     z-index: 99999 !important;
@@ -78,24 +80,24 @@ aside {
     padding: 80px 20px 20px 20px !important;
     background-color: #eeeeee !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Mjuk rörelse */
+    transition: left 0.3s ease-in-out !important; /* Snygg glidande animation */
     overflow-y: auto !important;
     display: block !important;
   }
 
-  /* 4. Detta läge triggas stabilt vid tryck på touchskärmar */
-  #my-true-mobile-drawer.drawer-is-visible {
+  /* 4. Läget som öppnar menyn stabilt på touch-skärmar */
+  #locked-mobile-drawer.drawer-is-open {
     left: 0 !important;
   }
 
-  /* 5. Göm Modernist-temats inbyggda mobilmenyer som lägger sig i toppen */
-  .wrapper > header:not(#my-true-mobile-drawer), 
-  body > header:not(#my-true-mobile-drawer) {
+  /* 5. Göm Modernists inbyggda mobilmenykopior som ligger och skräpar överst */
+  .wrapper > header:not(#locked-mobile-drawer), 
+  body > header:not(#locked-mobile-drawer) {
     display: none !important;
   }
 
-  /* 6. DEN NYA STABILA HAMBURGERKNAPPEN */
-  .custom-hamburger-btn {
+  /* 6. DEN NYA STRUKTURELLA HAMBURGERKNAPPEN */
+  .fixed-hamburger-btn {
     display: block !important;
     position: fixed !important;
     top: 15px;
@@ -111,13 +113,13 @@ aside {
     font-weight: bold !important;
     border: none !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
-    -webkit-appearance: none; /* Fixar iOS-knappars standardutseende */
+    -webkit-appearance: none; /* Ser till att iOS inte ändrar knappens runda former */
   }
 }
 
-/* Dölj alltid mobilknappen på stora datorskärmar */
+/* Dölj alltid mobilknappen på vanliga stora datorskärmar */
 @media screen and (min-width: 769px) {
-  .custom-hamburger-btn {
+  .fixed-hamburger-btn {
     display: none !important;
   }
 }
