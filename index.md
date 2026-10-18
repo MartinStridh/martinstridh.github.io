@@ -159,4 +159,3 @@ The final element.
     }
   });
 </script>
-
