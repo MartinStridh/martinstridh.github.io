@@ -3,149 +3,121 @@
 @import "{{ site.theme }}"; 
 
 /* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd)
+   🧱 GLOBAL LAYOUT (Gäller för ALLA skärmar: Dator, Surfplatta & Mobil)
    ========================================================================== */
+
 body { 
-  width: 95% !important; 
-  max-width: 1500px !important; 
+  width: 90% !important; 
+  max-width: 1200px !important; 
   margin: 0 auto !important; 
 } 
+
 .wrapper { 
-  max-width: 1500px !important; 
+  max-width: 1200px !important; 
   width: 100% !important; 
   margin: 0 auto !important; 
   display: block !important; 
 } 
-section { 
-  width: 80% !important; 
-  float: right !important; 
+
+/* 1. Tvinga din huvudsakliga textsektion att ta FULL bredd eftersom spalterna är borta */
+section, .wrapper > section { 
+  width: 100% !important; 
+  float: none !important; 
+  clear: both !important; 
   position: relative !important; 
+  display: block !important;
+  margin: 40px auto 0 auto !important;
+  box-sizing: border-box !important;
 } 
-aside { 
-  width: 15% !important; 
-  float: left !important; 
-  position: relative !important; 
-  background-color: #dddddd !important; 
-  display: block !important; 
-} 
-.wrapper::after { 
-  content: ""; 
-  display: table; 
-  clear: both; 
+
+/* 2. SKYDDA DIN SAJT-HEADER OCH SAJTTITEL (Men stäng av den gamla menyn överallt) */
+.wrapper > header, header, aside, .wrapper > aside {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 20px 0 !important;
+  margin-top: 60px !important; /* Ger plats åt hamburgerknappen i toppen */
+  float: none !important;
+  clear: both !important;
+  display: block !important;
+}
+
+/* 🔥 EFFEKTIV RENSNING: Göm den inbyggda listan och länkarna fullständigt på alla skärmar */
+.wrapper > header ul, 
+header ul, 
+aside ul,
+.wrapper > header p.view, 
+header p.view {
+  display: none !important; /* Tar bort länkarna och kollapsar det tomma menyutrymmet */
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* ==========================================================================
-   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Aktiveras enbart under 768px)
+   ☰ DESIGN FÖR DEN NYA NAVIGATIONSPANELEN OCH HAMBURGERKNAPPEN
    ========================================================================== */
-@media screen and (max-width: 768px) {
-  
-  body::before {
-    display: none !important;
-  }
 
-  /* 1. Låt innehållstexten ta full bredd under din vanliga header */
-  section, .wrapper > section {
-    width: 95% !important;
-    float: none !important;
-    clear: both !important;
-    margin: 20px auto 0 auto !important; 
-    display: block !important;
-  }
-
-  /* 2. 🔥 RÄDDA SAJT-HEADERN MEN RADERA GAMLA MENYUTRYMMET */
-  /* Vi låter huvudbehållaren visas så att logga/sajttitel är kvar... */
-  .wrapper > header, header, aside, .wrapper > aside {
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    padding: 20px !important;
-    margin-top: 60px !important; /* Ger plats åt hamburgerknappen */
-    float: none !important;
-    clear: both !important;
-    display: block !important;
-    visibility: visible !important;
-    left: 0 !important;
-  }
-
-  /* ...men vi raderar ALLA inbyggda listor och länk-behållare så att ytan kollapsar */
-  .wrapper > header ul, 
-  header ul, 
-  .wrapper > header p.view, 
-  header p.view {
-    display: none !important; /* Släcker länkarna och det tomma nav-utrymmet helt */
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* 3. DESIGN FÖR DEN NYA, FRISTÅENDE TOUCH-SIDOPANELEN */
-  .custom-mobile-drawer {
-    display: block !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: -280px !important; /* Dold till vänster till en början */
-    width: 250px !important;
-    height: 100% !important;
-    z-index: 99999 !important;
-    background-color: #eeeeee !important;
-    padding: 80px 20px 20px 20px !important;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Snygg glidande animation */
-    overflow-y: auto !important; /* Tillåter rullning om länkarna är många */
-    box-sizing: border-box !important;
-  }
-
-  /* Tvinga fram listan inuti den NYA mobilmenyn så att dina 8 länkar syns */
-  .custom-mobile-drawer ul {
-    display: block !important;
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 20px 0 !important;
-  }
-
-  .custom-mobile-drawer ul li {
-    display: block !important;
-    margin: 18px 0 !important;
-  }
-
-  .custom-mobile-drawer ul li a {
-    text-decoration: none !important;
-    color: #333 !important;
-    font-size: 15px !important;
-    font-weight: bold !important;
-    display: block !important;
-    font-family: sans-serif !important;
-  }
-
-  /* 4. Läget som öppnar menyn stabilt på touch-skärmar */
-  .custom-mobile-drawer.drawer-is-open {
-    left: 0 !important;
-  }
-
-  /* 5. DEN NYA STRUKTURELLA HAMBURGERKNAPPEN */
-  .fixed-hamburger-btn {
-    display: block !important;
-    position: fixed !important;
-    top: 15px;
-    left: 15px;
-    z-index: 100000 !important;
-    background: #333 !important;
-    color: #fff !important;
-    padding: 10px 16px !important;
-    font-size: 15px;
-    font-family: sans-serif !important;
-    border-radius: 4px !important;
-    cursor: pointer !important;
-    font-weight: bold !important;
-    border: none !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
-    -webkit-appearance: none;
-  }
+/* 3. HAMBURGERKNAPPEN (Synlig på alla skärmar) */
+.fixed-hamburger-btn {
+  display: block !important;
+  position: fixed !important;
+  top: 15px;
+  left: 15px;
+  z-index: 100000 !important;
+  background: #333 !important;
+  color: #fff !important;
+  padding: 10px 16px !important;
+  font-size: 15px;
+  font-family: sans-serif !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
+  -webkit-appearance: none;
 }
 
-/* Göm alltid mobilknappen och lådan på stora datorskärmar */
-@media screen and (min-width: 769px) {
-  .fixed-hamburger-btn, .custom-mobile-drawer {
-    display: none !important;
-  }
+/* 4. DEN FRISTÅENDE SIDOPANELEN (Dold till vänster från början) */
+.custom-mobile-drawer {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: -280px !important; 
+  width: 260px !important;
+  height: 100% !important;
+  z-index: 99999 !important;
+  background-color: #eeeeee !important;
+  padding: 80px 20px 20px 20px !important;
+  box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
+  transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande animationen */
+  overflow-y: auto !important; 
+  box-sizing: border-box !important;
+}
+
+/* Tvinga fram listan och länkarna inuti vår EGEN nya sidopanel så att de syns */
+.custom-mobile-drawer ul {
+  display: block !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+}
+
+.custom-mobile-drawer ul li {
+  display: block !important;
+  margin: 18px 0 !important;
+}
+
+.custom-mobile-drawer ul li a {
+  text-decoration: none !important;
+  color: #333 !important;
+  font-size: 15px !important;
+  font-weight: bold !important;
+  display: block !important;
+  font-family: sans-serif !important;
+}
+
+/* 5. Öppet läge när man klickar på knappen */
+.custom-mobile-drawer.drawer-is-open {
+  left: 0 !important;
 }
