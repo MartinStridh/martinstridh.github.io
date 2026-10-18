@@ -3,10 +3,7 @@
 @import "{{ site.theme }}"; 
 
 /* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd så att storskärmen blir rätt)
-   ========================================================================== */
-/* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Lämnas orörd för storskärm)
+   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd)
    ========================================================================== */
 body { 
   width: 95% !important; 
@@ -38,11 +35,10 @@ aside {
 }
 
 /* ==========================================================================
-   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Aktiveras under 768px)
+   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Under 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
   
-  /* Ta bort eventuella rester från gamla CSS-försök */
   body::before {
     display: none !important;
   }
@@ -56,7 +52,7 @@ aside {
     display: block !important;
   }
 
-  /* 2. SKYDDA DIN ORDINARIE HEADER: Låt temats inbyggda rubriker ligga kvar normalt */
+  /* 2. SKYDDA DIN ORDINARIE HEADER & GÖM GAMLA MENYN */
   .wrapper > header, header, aside, .wrapper > aside {
     position: relative !important;
     width: 100% !important;
@@ -65,11 +61,16 @@ aside {
     display: block !important;
     box-sizing: border-box !important;
     padding: 20px !important;
-    margin-top: 60px !important; /* Ger plats åt hamburgerknappen längst upp */
+    margin-top: 60px !important; /* Ger plats åt hamburgerknappen */
     left: 0 !important;
   }
 
-  /* Göm bort temats inbyggda nedladdningslänkar från den övre headern på mobilen om de är ivägen */
+  /* 🔥 NY RAD: Detta raderar den gamla trasiga menylistan i toppen på mobilen */
+  header ul, .wrapper > header ul, aside ul, .wrapper > aside ul {
+    display: none !important;
+  }
+
+  /* Göm bort temats inbyggda GitHub-knappar på mobilen så de inte skräpar */
   header ul.downloads, header p.view {
     display: none !important;
   }
@@ -86,8 +87,29 @@ aside {
     background-color: #eeeeee !important;
     padding: 80px 20px 20px 20px !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande effekten */
+    transition: left 0.3s ease-in-out !important; /* Mjuk glidande rörelse */
     overflow-y: auto !important;
+  }
+
+  /* Tvinga fram listan inuti den NYA mobilmenyn så att den syns */
+  .custom-mobile-drawer ul {
+    display: block !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+  }
+
+  .custom-mobile-drawer ul li {
+    display: block !important;
+    margin: 15px 0 !important;
+  }
+
+  .custom-mobile-drawer ul li a {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    display: block !important;
   }
 
   /* 4. Läget som öppnar menyn stabilt på touch-skärmar */
@@ -95,23 +117,7 @@ aside {
     left: 0 !important;
   }
 
-  /* Stil för länkarna inuti din nya mobilmeny */
-  .custom-mobile-drawer ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 20px 0 !important;
-  }
-  .custom-mobile-drawer ul li {
-    margin: 15px 0 !important;
-  }
-  .custom-mobile-drawer ul li a {
-    text-decoration: none !important;
-    color: #333 !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-  }
-
-  /* 5. DEN NYA STRUKTURELLA HAMBURGERKNAPPEN */
+  /* 5. HAMBURGERKNAPPEN */
   .fixed-hamburger-btn {
     display: block !important;
     position: fixed !important;
@@ -130,21 +136,9 @@ aside {
     box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
     -webkit-appearance: none;
   }
-   @media screen and (max-width: 768px) {
-  
-  /* ... (All din tidigare mobilkod lämnas exakt som den är) ... */
-
-  /* 🛠️ NY FIX: Göm de gamla textlänkarna (Home, Lund ECG Parser) från huvudheadern på mobilen */
-  .wrapper > header ul, 
-  header ul, 
-  aside ul,
-  .wrapper > header p.view,
-  header p.view {
-    display: none !important;
-  }
 }
 
-/* Göm alltid mobildelarna på vanliga stora datorskärmar */
+/* Göm alltid mobilknappen och lådan på stora datorskärmar */
 @media screen and (min-width: 769px) {
   .fixed-hamburger-btn, .custom-mobile-drawer {
     display: none !important;
