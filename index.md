@@ -120,10 +120,10 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 The final element.
 ```
 
-<!-- Hamburgerknappen för touch-skärmar -->
+<!-- Den globala hamburgerknappen för alla skärmar -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
 
-<!-- Den nya funktionella touch-sidopanelen med alla dina länkar -->
+<!-- Den fristående sidopanelen med alla dina 8 unika länkar -->
 <div id="clean-mobile-drawer" class="custom-mobile-drawer">
   <h3>Navigering</h3>
   <ul>
@@ -144,11 +144,13 @@ The final element.
     var drawer = document.getElementById("clean-mobile-drawer");
 
     if (btn && drawer) {
+      // Öppna och stäng stabilt vid tryck/klick
       btn.addEventListener("click", function(e) {
         e.stopPropagation();
         drawer.classList.toggle("drawer-is-open");
       });
 
+      // Stäng menyn om man klickar på texten utanför sidopanelen
       document.addEventListener("click", function(e) {
         if (drawer.classList.contains("drawer-is-open")) {
           if (!drawer.contains(e.target) && e.target !== btn) {
