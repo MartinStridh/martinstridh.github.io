@@ -185,7 +185,8 @@ pre, code, pre code {
   
   /* 🔥 DE HÄR RADERNA TVINGAR UT DET SVARTA FÄLTET TILL HÖGERKANTEN 🔥 */
   display: block !important;         /* Gör lådan till ett fullbrett blockelement */
-  width: calc(100% + 50px) !important;
   max-width: none !important;          /* Tar helt bort Modernist-temats dolda maxbreddsspärr */
+  width: calc(100% + 50px) !important;
+
 }
 }
