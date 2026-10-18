@@ -3,7 +3,7 @@
 @import "{{ site.theme }}"; 
 
 /* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Lämnas helt orörd för stora skärmar)
+   💻 1. DIN ORIGINALKOD FÖR DATORER (Lämnas orörd)
    ========================================================================== */
 body { 
   width: 95% !important; 
@@ -39,7 +39,7 @@ aside {
    ========================================================================== */
 @media screen and (max-width: 768px) {
   
-  /* Göm bort den gamla hamburgerknappen vi testade i CSS:en innan */
+  /* Ta bort eventuella rester av gamla CSS-knappar */
   body::before {
     display: none !important;
   }
@@ -53,7 +53,7 @@ aside {
     display: block !important;
   }
 
-  /* 2. 🔥 FIXA DIN ARTIKELRUBRIK: Rädda din header från att gömmas av temat */
+  /* 2. 🔥 FIXA ARTIKELRUBRIKEN: Rädda dina rubriker från att gömmas av temat globalt */
   section header, 
   section h1, 
   section h2, 
@@ -66,8 +66,8 @@ aside {
     width: 100% !important;
   }
 
-  /* 3. DESIGN FÖR DEN GLIDANDE MOBILMENYN (Styrs via JavaScript-klassen) */
-  .my-isolated-mobile-drawer {
+  /* 3. DESIGN FÖR DEN GLIDANDE MOBILMENYN (Triggers via ID-namnet) */
+  #my-true-mobile-drawer {
     position: fixed !important;
     top: 0 !important;
     left: -280px !important; /* Helt gömd till vänster till en början */
@@ -78,19 +78,19 @@ aside {
     padding: 80px 20px 20px 20px !important;
     background-color: #eeeeee !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Mjuk glidande rörelse */
+    transition: left 0.3s ease-in-out !important; /* Mjuk rörelse */
     overflow-y: auto !important;
     display: block !important;
   }
 
   /* 4. Detta läge triggas stabilt vid tryck på touchskärmar */
-  .my-isolated-mobile-drawer.drawer-is-visible {
+  #my-true-mobile-drawer.drawer-is-visible {
     left: 0 !important;
   }
 
   /* 5. Göm Modernist-temats inbyggda mobilmenyer som lägger sig i toppen */
-  .wrapper > header:not(.my-isolated-mobile-drawer), 
-  body > header:not(.my-isolated-mobile-drawer) {
+  .wrapper > header:not(#my-true-mobile-drawer), 
+  body > header:not(#my-true-mobile-drawer) {
     display: none !important;
   }
 
@@ -104,7 +104,7 @@ aside {
     background: #333 !important;
     color: #fff !important;
     padding: 10px 16px !important;
-    font-size: 15px !important;
+    font-size: 15px;
     font-family: sans-serif !important;
     border-radius: 4px !important;
     cursor: pointer !important;
