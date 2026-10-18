@@ -161,7 +161,7 @@ section, .wrapper > section {
   max-width: 100% !important;
   float: none !important;
   margin-left: 0 !important; /* Tar bort indraget som gjordes för sidomenyn */
-  padding-left: 10 !important;
+  padding-left: 0 !important;
 }
 
 /* 3. Säkerställ att din gradient-header inte påverkas av asides marginaler */
