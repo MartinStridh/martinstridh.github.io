@@ -129,3 +129,7 @@ header ul.downloads {
 .custom-mobile-drawer.drawer-is-open {
   left: 0 !important;
 }
+
+section {
+  margin-top: 0px !important; /* Tvingar textinnehållet att docka direkt mot headern */
+}
