@@ -123,13 +123,18 @@ The final element.
 <!-- Hamburgerknappen för touch-skärmar -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
 
-<!-- Den fristående touch-sidopanelen med dina RIKTIGA länkar -->
+<!-- Den nya funktionella touch-sidopanelen med alla dina länkar -->
 <div id="clean-mobile-drawer" class="custom-mobile-drawer">
   <h3>Navigering</h3>
   <ul>
     <li><a href="/">Home</a></li>
+    <li><a href="/use-lund-ecg-parser">Use Lund ECG Parser</a></li>
+    <li><a href="/community-purpose">Community purpose</a></li>
+    <li><a href="/join-the-community">Join the community</a></li>
     <li><a href="/lund-ecg-parser">Lund ECG Parser</a></li>
-    <!-- Om du har fler länkar i din meny, lägg till dem här på samma sätt -->
+    <li><a href="/lund-afr-tracker">Lund AFR Tracker</a></li>
+    <li><a href="/documentation">Documentation</a></li>
+    <li><a href="/publications">Publications</a></li>
   </ul>
 </div>
 
@@ -139,13 +144,11 @@ The final element.
     var drawer = document.getElementById("clean-mobile-drawer");
 
     if (btn && drawer) {
-      // Öppna/stäng stabilt på touch-skärmar
       btn.addEventListener("click", function(e) {
         e.stopPropagation();
         drawer.classList.toggle("drawer-is-open");
       });
 
-      // Stäng menyn om användaren klickar utanför den ute på sidan
       document.addEventListener("click", function(e) {
         if (drawer.classList.contains("drawer-is-open")) {
           if (!drawer.contains(e.target) && e.target !== btn) {
