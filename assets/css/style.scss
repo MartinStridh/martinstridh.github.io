@@ -169,3 +169,16 @@ header, .wrapper > header {
   float: none !important;
   width: 100% !important;
 }
+
+/* ==========================================================================
+   ☕ FIXA CODBLOCKENS INDRAG (JAVA-KOD UNDER H3)
+   ========================================================================== */
+
+/* Återställ marginaler och justera kodblocken så de linjerar med texten */
+pre, code, pre code {
+  margin-left: 0px !important;    /* Tar bort det inbyggda utskjutandet till vänster */
+  margin-right: 0px !important;   /* Ser till att det är symmetriskt på höger sida */
+  padding-left: 15px !important;  /* Ger en snygg och prydlig inre marginal för koden */
+  box-sizing: border-box !important; /* Garanterar att koden inte blir för bred */
+  width: 100% !important;         /* Tvingar blocket att hålla sig inom textens bredd */
+}
