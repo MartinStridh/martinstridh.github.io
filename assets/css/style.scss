@@ -19,40 +19,42 @@ body {
   display: block !important; 
 } 
 
-/* 1. Tvinga din huvudsakliga textsektion att ta FULL bredd och flytta upp i toppen */
+/* 1. Tvinga din textsektion att ta FULL bredd under din header */
 section, .wrapper > section { 
   width: 100% !important; 
   float: none !important; 
   clear: both !important; 
   position: relative !important; 
   display: block !important;
-  margin: 20px auto 0 auto !important; /* Minskat avstånd från absolut högsta toppen */
+  margin: 30px auto 0 auto !important;
   box-sizing: border-box !important;
 } 
 
-/* 2. 🔥 RETA RENSNING AV GRÅA MENYYTAN: Vi raderar den gamla modulens utrymme helt */
+/* 2. ✅ RÄDDA DIN HEADERTITEL: Vi låter huvudbehållaren visas normalt på alla skärmar... */
 .wrapper > header, header, aside, .wrapper > aside {
-  position: absolute !important; /* Tar bort den från det normala sidflödet */
-  width: 0 !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 20px 0 !important;
+  margin-top: 60px !important; /* Ger ett rent utrymme för hamburgerknappen i toppen */
   float: none !important;
   clear: both !important;
-  display: none !important;      /* Stänger av den synliga rutan helt */
-  background: none !important;   /* Raderar den gråa bakgrundsfärgen */
-  box-shadow: none !important;   /* Tar bort dolda temaskuggor */
-  border: none !important;       /* Raderar kantlinjer */
-  visibility: hidden !important;
+  display: block !important;
+  visibility: visible !important;
+  background: none !important;   /* Tar bort eventuella extra gråa blockbakgrunder */
+  box-shadow: none !important;
+  border: none !important;
 }
 
-/* Göm den inbyggda listan och länkarna fullständigt på alla skärmar */
+/* ...men vi raderar ALLA temats inbyggda menylistor och GitHub-knappar globalt */
 .wrapper > header ul, 
 header ul, 
 aside ul,
 .wrapper > header p.view, 
-header p.view {
-  display: none !important; 
+header p.view,
+.wrapper > header ul.downloads,
+header ul.downloads {
+  display: none !important; /* Släcker enbart länkarna och kollapsar det gamla gråa tomrummet */
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -62,7 +64,7 @@ header p.view {
    ☰ DESIGN FÖR DEN NYA NAVIGATIONSPANELEN OCH HAMBURGERKNAPPEN
    ========================================================================== */
 
-/* 3. HAMBURGERKNAPPEN (Synlig överst till vänster på alla skärmar) */
+/* 3. HAMBURGERKNAPPEN (Alltid fixerad överst till vänster) */
 .fixed-hamburger-btn {
   display: block !important;
   position: fixed !important;
@@ -94,12 +96,12 @@ header p.view {
   background-color: #eeeeee !important;
   padding: 80px 20px 20px 20px !important;
   box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-  transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande animationen */
+  transition: left 0.3s ease-in-out !important; /* Mjuk glidande animation */
   overflow-y: auto !important; 
   box-sizing: border-box !important;
 }
 
-/* Tvinga fram listan och länkarna inuti vår EGEN nya sidopanel så att de syns */
+/* Tvinga fram länklistan i vår EGEN nya sidopanel så att dina 8 länkar syns */
 .custom-mobile-drawer ul {
   display: block !important;
   list-style: none !important;
