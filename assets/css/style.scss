@@ -5,6 +5,9 @@
 /* ==========================================================================
    💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd så att storskärmen blir rätt)
    ========================================================================== */
+/* ==========================================================================
+   💻 1. DIN ORIGINALKOD FÖR DATORER (Lämnas orörd för storskärm)
+   ========================================================================== */
 body { 
   width: 95% !important; 
   max-width: 1500px !important; 
@@ -35,68 +38,80 @@ aside {
 }
 
 /* ==========================================================================
-   📱 2. FIX FÖR ATT STOPPA SAMBANBLANDNING PÅ MOBIL & SURFPLATTA (Under 768px)
+   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Aktiveras under 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
   
-  /* Ta bort eventuella gamla CSS-knappar som spökar */
+  /* Ta bort eventuella rester från gamla CSS-försök */
   body::before {
     display: none !important;
   }
 
-  /* 1. Bredda din innehållstext så att den flyter på normalt */
-  section {
+  /* 1. Låt innehållstexten ta full bredd under din vanliga header */
+  section, .wrapper > section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt knappen längst upp */
+    margin: 20px auto 0 auto !important;
     display: block !important;
   }
 
-  /* 2. 🔥 RÄDDA DIN ARTIKELRUBRIK: Tvinga dina egna rubriker att ligga kvar synliga */
-  /* Genom att skriva 'section header' blockerar vi temats försök att stjäla din rubrik */
-  section header, 
-  section h1, 
-  section h2, 
-  .wrapper > section header,
-  .wrapper > section h1 {
-    display: block !important;
+  /* 2. SKYDDA DIN ORDINARIE HEADER: Låt temats inbyggda rubriker ligga kvar normalt */
+  .wrapper > header, header, aside, .wrapper > aside {
     position: relative !important;
-    visibility: visible !important;
-    opacity: 1 !important;
     width: 100% !important;
-    margin: 10px 0 !important;
-  }
-
-  /* 3. LÅS FAST OCH GÖM DEN ÄKTA MENYN I EN SIDOPANEL */
-  #locked-mobile-drawer {
-    position: fixed !important;
-    top: 0 !important;
-    left: -280px !important; /* Dölj säkert till vänster */
-    width: 240px !important;
-    height: 100% !important;
-    z-index: 99999 !important;
     float: none !important;
-    padding: 80px 20px 20px 20px !important;
-    background-color: #eeeeee !important;
-    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Snygg glidande animation */
-    overflow-y: auto !important;
+    clear: both !important;
     display: block !important;
-  }
-
-  /* 4. Läget som öppnar menyn stabilt på touch-skärmar */
-  #locked-mobile-drawer.drawer-is-open {
+    box-sizing: border-box !important;
+    padding: 20px !important;
+    margin-top: 60px !important; /* Ger plats åt hamburgerknappen längst upp */
     left: 0 !important;
   }
 
-  /* 5. Göm Modernists inbyggda mobilmenykopior som ligger och skräpar överst */
-  .wrapper > header:not(#locked-mobile-drawer), 
-  body > header:not(#locked-mobile-drawer) {
+  /* Göm bort temats inbyggda nedladdningslänkar från den övre headern på mobilen om de är ivägen */
+  header ul.downloads, header p.view {
     display: none !important;
   }
 
-  /* 6. DEN NYA STRUKTURELLA HAMBURGERKNAPPEN */
+  /* 3. DESIGN FÖR DEN NYA, FRISTÅENDE TOUCH-SIDOPANELEN */
+  .custom-mobile-drawer {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: -280px !important; /* Helt dold till vänster till en början */
+    width: 240px !important;
+    height: 100% !important;
+    z-index: 99999 !important;
+    background-color: #eeeeee !important;
+    padding: 80px 20px 20px 20px !important;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
+    transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande effekten */
+    overflow-y: auto !important;
+  }
+
+  /* 4. Läget som öppnar menyn stabilt på touch-skärmar */
+  .custom-mobile-drawer.drawer-is-open {
+    left: 0 !important;
+  }
+
+  /* Stil för länkarna inuti din nya mobilmeny */
+  .custom-mobile-drawer ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
+  }
+  .custom-mobile-drawer ul li {
+    margin: 15px 0 !important;
+  }
+  .custom-mobile-drawer ul li a {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
+
+  /* 5. DEN NYA STRUKTURELLA HAMBURGERKNAPPEN */
   .fixed-hamburger-btn {
     display: block !important;
     position: fixed !important;
@@ -113,13 +128,13 @@ aside {
     font-weight: bold !important;
     border: none !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
-    -webkit-appearance: none; /* Ser till att iOS inte ändrar knappens runda former */
+    -webkit-appearance: none;
   }
 }
 
-/* Dölj alltid mobilknappen på vanliga stora datorskärmar */
+/* Göm alltid mobildelarna på vanliga stora datorskärmar */
 @media screen and (min-width: 769px) {
-  .fixed-hamburger-btn {
+  .fixed-hamburger-btn, .custom-mobile-drawer {
     display: none !important;
   }
 }
