@@ -171,18 +171,18 @@ header, .wrapper > header {
 }
 
 /* ==========================================================================
-   ☕ FIXA CODBLOCKENS INDRAG (JAVA-KOD UNDER H3) - UPPDATERAD SYMMETRI
+   ☕ FIXA CODBLOCKENS INDRAG (JAVA-KOD UNDER H3) - EXAKT SYMMETRI
    ========================================================================== */
 
-/* Återställ marginaler och justera kodblocken så de linjerar perfekt på båda sidor */
 pre, code, pre code {
-  margin-left: 0px !important;    /* Håller kvar koden perfekt i vänsterkant */
-  margin-right: 0px !important;   /* Tar bort alla indrag på högerknappen */
-  padding-left: 15px !important;  /* Ger snyggt tomrum för texten inuti det svarta fältet */
-  padding-right: 15px !important; /* Ger symmetriskt tomrum på insidan till höger */
-  box-sizing: border-box !important; /* Tvingar webbläsaren att räkna bredden inifrån */
+  margin-left: 0px !important;       /* Håller koden klistrad mot vänsterkanten */
+  margin-right: 0px !important;      /* Tvingar bort alla dolda högermarginaler */
+  padding-left: 15px !important;     /* Snyggt tomrum för texten inuti till vänster */
+  padding-right: 15px !important;    /* Snyggt tomrum för texten inuti till höger */
+  box-sizing: border-box !important;    /* Räknar padding inifrån så lådan inte spricker */
   
-  /* 👇 DE HÄR TVÅ RADERNA TILLSAMMANS STRÄCKER UT DET SVARTA FÄLTET TILL HÖGER 👇 */
-  width: auto !important;         /* Låter blocket andas istället för att låsa sig vid 100% */
-  display: block !important;      /* Tvingar blocket att ta upp hela den tillgängliga raden */
+  /* 🔥 DE HÄR RADERNA TVINGAR UT DET SVARTA FÄLTET TILL HÖGERKANTEN 🔥 */
+  display: block !important;         /* Gör lådan till ett fullbrett blockelement */
+  width: 100% !important;            /* Tvingar blocket att ta upp precis 100% av ytan */
+  max-width: 100% !important;        /* Krossar Modernist-temats dolda maxbreddsspärr */
 }
