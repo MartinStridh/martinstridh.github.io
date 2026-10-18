@@ -123,37 +123,35 @@ The final element.
 <!-- Vi skapar ett dolt element som hjälper skriptet att hitta din sidomeny -->
 <span id="sidebar-marker" style="display:none;"></span>
 
-<!-- En stabil touch-knapp som skapas som ett riktigt element på mobilen -->
-<button class="custom-hamburger-btn" id="mobileMenuTrigger">☰ Menu</button>
+<!-- En helt fristående knapp som inte tillhör temats kod -->
+<button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta den äkta menyn genom att leta efter temats unika nedladdningsknappar/länkar
-    var uniqueElement = document.querySelector("ul.downloads") || document.querySelector("p.view");
-    var realSidebar = null;
-    
-    if (uniqueElement) {
-      // Hitta den yttre behållaren (header/aside) som faktiskt äger dessa länkar
-      realSidebar = uniqueElement.closest("header") || uniqueElement.closest("aside");
-    }
+    // 1. Hitta wrapper-boxen
+    var mainWrapper = document.querySelector(".wrapper");
+    if (!mainWrapper) return;
 
-    // 2. Om vi hittade den äkta menyn, lås fast den med ett unikt ID och starta touch-logiken
-    if (realSidebar && !realSidebar.closest("section")) {
-      realSidebar.setAttribute("id", "my-true-mobile-drawer");
-      
-      var trigger = document.getElementById("mobileMenuTrigger");
-      
+    // 2. Plocka ut det element direkt under wrapper som INTE är texten (section)
+    var trueSidebarMenu = mainWrapper.querySelector(":scope > header") || mainWrapper.querySelector(":scope > aside");
+
+    if (trueSidebarMenu) {
+      // Stämpla den äkta menyn med ett stenhårt ID så att den låses fast i CSS
+      trueSidebarMenu.setAttribute("id", "locked-mobile-drawer");
+
+      var btn = document.getElementById("triggerMobileMenu");
+
       // Öppna och stäng stabilt vid tryck på touchskärmar
-      trigger.addEventListener("click", function(e) {
+      btn.addEventListener("click", function(e) {
         e.stopPropagation();
-        realSidebar.classList.toggle("drawer-is-visible");
+        trueSidebarMenu.classList.toggle("drawer-is-open");
       });
-      
-      // Stäng enbart om användaren klickar helt utanför sidopanelen
+
+      // Stäng om man klickar på texten utanför sidopanelen
       document.addEventListener("click", function(e) {
-        if (realSidebar.classList.contains("drawer-is-visible")) {
-          if (!realSidebar.contains(e.target) && e.target !== trigger) {
-            realSidebar.classList.remove("drawer-is-visible");
+        if (trueSidebarMenu.classList.contains("drawer-is-open")) {
+          if (!trueSidebarMenu.contains(e.target) && e.target !== btn) {
+            trueSidebarMenu.classList.remove("drawer-is-open");
           }
         }
       });
