@@ -44,7 +44,7 @@ section, .wrapper > section {
   box-sizing: border-box !important;   /* Ser till att bredden stämmer perfekt */
 
   /* 🔥 NYA RADER SOM KLIPPER BORT DET 1.5CM GRÅA BLOCKET UNDER GRADIENTEN 🔥 */
-  padding-bottom: 30px !important;      /* Tvingar gradienten att sluta direkt under texten */
+  padding-bottom: 20px !important;      /* Tvingar gradienten att sluta direkt under texten */
   border-bottom: none !important;      /* Raderar Modernist-temats tjocka, gråa bottenlinje */
 }
 
@@ -52,7 +52,7 @@ section, .wrapper > section {
 section, .wrapper > section {
   border-top: none !important;         /* Tar bort Modernists gråa topplinje på texten */
   margin-top: 0px !important;          /* Tar bort tomrummet ovanför texten */
-  padding-top: 00px !important;        /* Ger ett lagom stort, rent avstånd för brödtexten */
+  padding-top: 5px !important;        /* Ger ett lagom stort, rent avstånd för brödtexten */
 }
 
 /* 🛑 NY FIX: Vi döljer listorna och NOLLSTÄLLER deras utrymme helt så att det gråa gapet raderas */
