@@ -26,27 +26,25 @@ section, .wrapper > section {
   clear: both !important; 
   position: relative !important; 
   display: block !important;
-  margin: 30px auto 0 auto !important;
+  margin: 10px auto 0 auto !important; /* Minskat avstånd så texten flyttar upp */
   box-sizing: border-box !important;
 } 
 
-/* 2. ✅ RÄDDA DIN HEADERTITEL: Vi låter huvudbehållaren visas normalt på alla skärmar... */
+/* 2. ✅ BEHÅLL TEMATS ORIGINALBAKGRUND OCH TONING */
+/* Vi rör inte 'background', så att din snygga originaltoning sparas helt! */
 .wrapper > header, header, aside, .wrapper > aside {
   position: relative !important;
   width: 100% !important;
   height: auto !important;
-  padding: 20px 0 !important;
-  margin-top: 60px !important; /* Ger ett rent utrymme för hamburgerknappen i toppen */
   float: none !important;
   clear: both !important;
   display: block !important;
   visibility: visible !important;
-  background: none !important;   /* Tar bort eventuella extra gråa blockbakgrunder */
-  box-shadow: none !important;
-  border: none !important;
+  margin-top: 60px !important; /* Ger ett rent utrymme för hamburgerknappen i toppen */
+  padding-bottom: 0 !important; /* Krymper ytan nedåt så mycket det går */
 }
 
-/* ...men vi raderar ALLA temats inbyggda menylistor och GitHub-knappar globalt */
+/* 🛑 NY FIX: Vi döljer listorna och NOLLSTÄLLER deras utrymme helt så att det gråa gapet raderas */
 .wrapper > header ul, 
 header ul, 
 aside ul,
@@ -54,7 +52,7 @@ aside ul,
 header p.view,
 .wrapper > header ul.downloads,
 header ul.downloads {
-  display: none !important; /* Släcker enbart länkarna och kollapsar det gamla gråa tomrummet */
+  display: none !important; 
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -64,7 +62,7 @@ header ul.downloads {
    ☰ DESIGN FÖR DEN NYA NAVIGATIONSPANELEN OCH HAMBURGERKNAPPEN
    ========================================================================== */
 
-/* 3. HAMBURGERKNAPPEN (Alltid fixerad överst till vänster) */
+/* 3. HAMBURGERKNAPPEN (Fixerad överst till vänster) */
 .fixed-hamburger-btn {
   display: block !important;
   position: fixed !important;
