@@ -161,7 +161,9 @@ section, .wrapper > section {
   max-width: 100% !important;
   float: none !important;
   margin-left: 0 !important; /* Tar bort indraget som gjordes för sidomenyn */
-  padding-left: 0 !important;
+  padding-left: 25px !important;   /* Skjuter in brödtext och rubriker 25px från vänster */
+  padding-right: 25px !important;  /* Skjuter in brödtext från höger */
+  box-sizing: border-box !important;   
 }
 
 /* 3. Säkerställ att din gradient-header inte påverkas av asides marginaler */
@@ -175,14 +177,14 @@ header, .wrapper > header {
    ========================================================================== */
 
 pre, code, pre code {
-  margin-left: 0px !important;       /* Håller koden klistrad mot vänsterkanten */
-  margin-right: 0px !important;      /* Tvingar bort alla dolda högermarginaler */
-  padding-left: 15px !important;     /* Snyggt tomrum för texten inuti till vänster */
-  padding-right: 15px !important;    /* Snyggt tomrum för texten inuti till höger */
+  margin-left: -25px !important;       /* Håller koden klistrad mot vänsterkanten */
+  margin-right: -25px !important;      /* Tvingar bort alla dolda högermarginaler */
+  padding-left: 25px !important;     /* Snyggt tomrum för texten inuti till vänster */
+  padding-right: 25px !important;    /* Snyggt tomrum för texten inuti till höger */
   box-sizing: border-box !important;    /* Räknar padding inifrån så lådan inte spricker */
   
   /* 🔥 DE HÄR RADERNA TVINGAR UT DET SVARTA FÄLTET TILL HÖGERKANTEN 🔥 */
   display: block !important;         /* Gör lådan till ett fullbrett blockelement */
-  width: 100% !important;            /* Tvingar blocket att ta upp precis 100% av ytan */
+  width: auto !important;            /* Tvingar blocket att ta upp precis 100% av ytan */
   max-width: 100% !important;        /* Krossar Modernist-temats dolda maxbreddsspärr */
 }
