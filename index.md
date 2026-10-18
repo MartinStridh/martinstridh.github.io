@@ -123,3 +123,37 @@ The final element.
 <!-- Vi skapar ett dolt element som hjälper skriptet att hitta din sidomeny -->
 <span id="sidebar-marker" style="display:none;"></span>
 
+<!-- Denna knapp skapas som ett stabilt, riktigt element på mobilen -->
+<button class="custom-hamburger-btn" id="mobileMenuTrigger">☰ Menu</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 1. Hitta ENBART den äkta sidomenyn (den som ligger direkt under .wrapper)
+    var wrapper = document.querySelector(".wrapper");
+    if (!wrapper) return;
+    
+    var realSidebar = wrapper.querySelector(":scope > header") || wrapper.querySelector(":scope > aside");
+    
+    if (realSidebar) {
+      // Märk den med en helt unik klass så att CSS:en inte tar fel
+      realSidebar.classList.add("my-isolated-mobile-drawer");
+      
+      var trigger = document.getElementById("mobileMenuTrigger");
+      
+      // 2. Hantera klick och touch på ett stabilt sätt utan att menyn stängs direkt
+      trigger.addEventListener("click", function(e) {
+        e.stopPropagation();
+        realSidebar.classList.toggle("drawer-is-visible");
+      });
+      
+      // 3. Stäng menyn enbart om användaren klickar utanför sidopanelen
+      document.addEventListener("click", function(e) {
+        if (realSidebar.classList.contains("drawer-is-visible")) {
+          if (!realSidebar.contains(e.target) && e.target !== trigger) {
+            realSidebar.classList.remove("drawer-is-visible");
+          }
+        }
+      });
+    }
+  });
+</script>
