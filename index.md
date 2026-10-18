@@ -123,30 +123,33 @@ The final element.
 <!-- Vi skapar ett dolt element som hjälper skriptet att hitta din sidomeny -->
 <span id="sidebar-marker" style="display:none;"></span>
 
-<!-- Denna knapp skapas som ett stabilt, riktigt element på mobilen -->
+<!-- En stabil touch-knapp som skapas som ett riktigt element på mobilen -->
 <button class="custom-hamburger-btn" id="mobileMenuTrigger">☰ Menu</button>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta ENBART den äkta sidomenyn (den som ligger direkt under .wrapper)
-    var wrapper = document.querySelector(".wrapper");
-    if (!wrapper) return;
+    // 1. Hitta den äkta menyn genom att leta efter temats unika nedladdningsknappar/länkar
+    var uniqueElement = document.querySelector("ul.downloads") || document.querySelector("p.view");
+    var realSidebar = null;
     
-    var realSidebar = wrapper.querySelector(":scope > header") || wrapper.querySelector(":scope > aside");
-    
-    if (realSidebar) {
-      // Märk den med en helt unik klass så att CSS:en inte tar fel
-      realSidebar.classList.add("my-isolated-mobile-drawer");
+    if (uniqueElement) {
+      // Hitta den yttre behållaren (header/aside) som faktiskt äger dessa länkar
+      realSidebar = uniqueElement.closest("header") || uniqueElement.closest("aside");
+    }
+
+    // 2. Om vi hittade den äkta menyn, lås fast den med ett unikt ID och starta touch-logiken
+    if (realSidebar && !realSidebar.closest("section")) {
+      realSidebar.setAttribute("id", "my-true-mobile-drawer");
       
       var trigger = document.getElementById("mobileMenuTrigger");
       
-      // 2. Hantera klick och touch på ett stabilt sätt utan att menyn stängs direkt
+      // Öppna och stäng stabilt vid tryck på touchskärmar
       trigger.addEventListener("click", function(e) {
         e.stopPropagation();
         realSidebar.classList.toggle("drawer-is-visible");
       });
       
-      // 3. Stäng menyn enbart om användaren klickar utanför sidopanelen
+      // Stäng enbart om användaren klickar helt utanför sidopanelen
       document.addEventListener("click", function(e) {
         if (realSidebar.classList.contains("drawer-is-visible")) {
           if (!realSidebar.contains(e.target) && e.target !== trigger) {
