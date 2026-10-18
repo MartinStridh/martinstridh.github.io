@@ -19,36 +19,40 @@ body {
   display: block !important; 
 } 
 
-/* 1. Tvinga din huvudsakliga textsektion att ta FULL bredd eftersom spalterna är borta */
+/* 1. Tvinga din huvudsakliga textsektion att ta FULL bredd och flytta upp i toppen */
 section, .wrapper > section { 
   width: 100% !important; 
   float: none !important; 
   clear: both !important; 
   position: relative !important; 
   display: block !important;
-  margin: 40px auto 0 auto !important;
+  margin: 20px auto 0 auto !important; /* Minskat avstånd från absolut högsta toppen */
   box-sizing: border-box !important;
 } 
 
-/* 2. SKYDDA DIN SAJT-HEADER OCH SAJTTITEL (Men stäng av den gamla menyn överallt) */
+/* 2. 🔥 RETA RENSNING AV GRÅA MENYYTAN: Vi raderar den gamla modulens utrymme helt */
 .wrapper > header, header, aside, .wrapper > aside {
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  padding: 20px 0 !important;
-  margin-top: 60px !important; /* Ger plats åt hamburgerknappen i toppen */
+  position: absolute !important; /* Tar bort den från det normala sidflödet */
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
   float: none !important;
   clear: both !important;
-  display: block !important;
+  display: none !important;      /* Stänger av den synliga rutan helt */
+  background: none !important;   /* Raderar den gråa bakgrundsfärgen */
+  box-shadow: none !important;   /* Tar bort dolda temaskuggor */
+  border: none !important;       /* Raderar kantlinjer */
+  visibility: hidden !important;
 }
 
-/* 🔥 EFFEKTIV RENSNING: Göm den inbyggda listan och länkarna fullständigt på alla skärmar */
+/* Göm den inbyggda listan och länkarna fullständigt på alla skärmar */
 .wrapper > header ul, 
 header ul, 
 aside ul,
 .wrapper > header p.view, 
 header p.view {
-  display: none !important; /* Tar bort länkarna och kollapsar det tomma menyutrymmet */
+  display: none !important; 
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -58,7 +62,7 @@ header p.view {
    ☰ DESIGN FÖR DEN NYA NAVIGATIONSPANELEN OCH HAMBURGERKNAPPEN
    ========================================================================== */
 
-/* 3. HAMBURGERKNAPPEN (Synlig på alla skärmar) */
+/* 3. HAMBURGERKNAPPEN (Synlig överst till vänster på alla skärmar) */
 .fixed-hamburger-btn {
   display: block !important;
   position: fixed !important;
