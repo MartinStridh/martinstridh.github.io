@@ -185,6 +185,6 @@ pre, code, pre code {
   
   /* 🔥 DE HÄR RADERNA TVINGAR UT DET SVARTA FÄLTET TILL HÖGERKANTEN 🔥 */
   display: block !important;         /* Gör lådan till ett fullbrett blockelement */
-  width: auto !important;            /* Tvingar blocket att ta upp precis 100% av ytan */
+  width: 100% !important;            /* Tvingar blocket att ta upp precis 100% av ytan */
   max-width: 100% !important;        /* Krossar Modernist-temats dolda maxbreddsspärr */
 }
