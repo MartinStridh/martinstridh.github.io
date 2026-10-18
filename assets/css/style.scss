@@ -42,6 +42,7 @@ section, .wrapper > section {
   visibility: visible !important;
   margin-top: 60px !important; /* Ger ett rent utrymme för hamburgerknappen i toppen */
   padding-bottom: 0 !important; /* Krymper ytan nedåt så mycket det går */
+  box-sizing: border-box !important;    
 }
 
 /* 🛑 NY FIX: Vi döljer listorna och NOLLSTÄLLER deras utrymme helt så att det gråa gapet raderas */
