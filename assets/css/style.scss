@@ -35,54 +35,101 @@ aside {
 }
 
 /* 📱 Responsive Hamburger Menu (Screens smaller than 768px) */
+@media screen and (min-width: 769px) {
+  body { 
+    width: 95% !important; 
+    max-width: 1500px !important; 
+    margin: 0 auto !important; 
+  } 
+
+  .wrapper { 
+    max-width: 1500px !important; 
+    width: 100% !important; 
+    margin: 0 auto !important; 
+    display: block !important; 
+  } 
+
+  section { 
+    width: 80% !important; 
+    float: right !important; 
+    position: relative !important; 
+  } 
+
+  /* Keep the primary theme layout sidebar fixed on the left side */
+  aside, .wrapper > header { 
+    width: 15% !important; 
+    float: left !important; 
+    position: relative !important; 
+    background-color: #dddddd !important; 
+    display: block !important; 
+  } 
+
+  .wrapper::after { 
+    content: ""; 
+    display: table; 
+    clear: both; 
+  }
+}
+
+/* ==========================================================================
+   📱 2. MOBILE HAMBURGER VIEW (Only active on screens 768px or SMALLER)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
   
-  /* 1. Lås fast din innehållssektion stabilt på skärmen */
-  .wrapper > section, section {
-    width: 95% !important;
-    float: none !important;
-    clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats åt menyknappen i toppen */
+  /* 1. Standardize the document canvas structure */
+  body, .wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     display: block !important;
-    position: relative !important;
   }
 
-  /* 2. SKYDDA DIN ORDINARIE RUBRIK: Tvinga temats egna textrubriker att ligga kvar i sektionen */
-  section h1, section h2, section h3, section header {
+  /* 2. Lock content blocks flat in place (Prevents the element overlap) */
+  section {
+    width: 92% !important;
+    max-width: 92% !important;
+    float: none !important;
+    clear: both !important;
     display: block !important;
+    margin: 70px auto 0 auto !important; /* Clears layout space for top trigger button */
+    padding: 0 !important;
+  }
+
+  /* 3. Protect internal section page headers from folding inside the menu */
+  section header, section h1, section h2, section h3 {
     position: relative !important;
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     width: 100% !important;
-    margin: 10px 0 !important;
+    clear: both !important;
   }
 
-  /* 3. FÖRVANDLA ENBART DEN RIKTIGA SIDOMENYN TILL EN DOLD SIDOPANEL */
-  /* Genom att skriva '.wrapper > header' träffar vi ENBART temats äkta sidomeny */
-  .wrapper > header {
+  /* 4. Convert the theme layout node exclusively into a fixed left drawer drawer */
+  .wrapper > header, aside {
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important; /* Dölj menyn utanför vänsterkanten från början */
+    left: -280px !important; /* Conceal component cleanly off-viewport */
     width: 240px !important;
     height: 100% !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important; /* Layers drawer above standard text documents */
     float: none !important;
     padding: 80px 20px 20px 20px !important;
     background-color: #eeeeee !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande effekten */
+    transition: left 0.3s ease-in-out !important; /* Modern fluid transitions */
     overflow-y: auto !important;
     display: block !important;
   }
 
-  /* 4. SKAPA CSS-HAMBURGERN UTAN HTML/JAVASCRIPT */
-  /* Vi lägger till en klickbar yta högst upp på skärmen som aktiverar menyn via :active */
+  /* 5. Inject a native, structural hamburger toggle button button */
   body::before {
     content: "☰ Menu";
     position: fixed !important;
     top: 15px;
     left: 15px;
-    z-index: 10000 !important;
+    z-index: 100000 !important; /* Places navigation layer on top of background panels */
     background: #333;
     color: #fff;
     padding: 10px 16px;
@@ -94,11 +141,11 @@ aside {
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
   }
 
-  /* 5. ÖPPNA MENYN VID KLICK/TAP */
-  /* När användaren trycker eller håller fingret på sidan/menyn glider den ut perfekt */
+  /* 6. Expand navigation drawer via active selection properties */
   body:active .wrapper > header, 
+  body:active aside,
   .wrapper > header:hover,
-  body:hover .wrapper > header {
+  aside:hover {
     left: 0 !important;
   }
 }
