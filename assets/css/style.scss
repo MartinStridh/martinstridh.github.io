@@ -130,6 +130,18 @@ aside {
     box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
     -webkit-appearance: none;
   }
+   @media screen and (max-width: 768px) {
+  
+  /* ... (All din tidigare mobilkod lämnas exakt som den är) ... */
+
+  /* 🛠️ NY FIX: Göm de gamla textlänkarna (Home, Lund ECG Parser) från huvudheadern på mobilen */
+  .wrapper > header ul, 
+  header ul, 
+  aside ul,
+  .wrapper > header p.view,
+  header p.view {
+    display: none !important;
+  }
 }
 
 /* Göm alltid mobildelarna på vanliga stora datorskärmar */
