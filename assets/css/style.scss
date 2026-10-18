@@ -3,7 +3,7 @@
 @import "{{ site.theme }}"; 
 
 /* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd - sparar din desktop-layout)
+   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd)
    ========================================================================== */
 body { 
   width: 95% !important; 
@@ -43,26 +43,39 @@ aside {
     display: none !important;
   }
 
-  /* 1. Låt innehållstexten ta full bredd utan tomma marginaler i sidled */
+  /* 1. Låt innehållstexten ta full bredd under din vanliga header */
   section, .wrapper > section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger ett rent utrymme för knappen */
+    margin: 20px auto 0 auto !important; 
     display: block !important;
   }
 
-  /* 2. 🔥 NY FIX: Släck den gamla menyn och dess tomma utrymme (menu space) helt */
+  /* 2. 🔥 RÄDDA SAJT-HEADERN MEN RADERA GAMLA MENYUTRYMMET */
+  /* Vi låter huvudbehållaren visas så att logga/sajttitel är kvar... */
   .wrapper > header, header, aside, .wrapper > aside {
     position: relative !important;
-    width: 0 !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 20px !important;
+    margin-top: 60px !important; /* Ger plats åt hamburgerknappen */
     float: none !important;
     clear: both !important;
-    display: none !important; /* Stänger av ytan helt på mobilen */
-    visibility: hidden !important;
+    display: block !important;
+    visibility: visible !important;
+    left: 0 !important;
+  }
+
+  /* ...men vi raderar ALLA inbyggda listor och länk-behållare så att ytan kollapsar */
+  .wrapper > header ul, 
+  header ul, 
+  .wrapper > header p.view, 
+  header p.view {
+    display: none !important; /* Släcker länkarna och det tomma nav-utrymmet helt */
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   /* 3. DESIGN FÖR DEN NYA, FRISTÅENDE TOUCH-SIDOPANELEN */
@@ -77,12 +90,12 @@ aside {
     background-color: #eeeeee !important;
     padding: 80px 20px 20px 20px !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande effekten */
-    overflow-y: auto !important; /* Tillåter skrollning i menyn om länkarna är många */
+    transition: left 0.3s ease-in-out !important; /* Snygg glidande animation */
+    overflow-y: auto !important; /* Tillåter rullning om länkarna är många */
     box-sizing: border-box !important;
   }
 
-  /* Tvinga fram listan inuti den NYA mobilmenyn så att länkarna syns */
+  /* Tvinga fram listan inuti den NYA mobilmenyn så att dina 8 länkar syns */
   .custom-mobile-drawer ul {
     display: block !important;
     list-style: none !important;
