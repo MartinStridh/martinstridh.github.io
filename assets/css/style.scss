@@ -3,7 +3,7 @@
 @import "{{ site.theme }}"; 
 
 /* ==========================================================================
-   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd)
+   💻 1. DIN ORIGINALKOD FÖR DATORER (Helt orörd - sparar din desktop-layout)
    ========================================================================== */
 body { 
   width: 95% !important; 
@@ -35,7 +35,7 @@ aside {
 }
 
 /* ==========================================================================
-   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Under 768px)
+   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Aktiveras enbart under 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
   
@@ -43,36 +43,26 @@ aside {
     display: none !important;
   }
 
-  /* 1. Låt innehållstexten ta full bredd under din vanliga header */
+  /* 1. Låt innehållstexten ta full bredd utan tomma marginaler i sidled */
   section, .wrapper > section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 20px auto 0 auto !important;
+    margin: 80px auto 0 auto !important; /* Ger ett rent utrymme för knappen */
     display: block !important;
   }
 
-  /* 2. SKYDDA DIN ORDINARIE HEADER & GÖM GAMLA MENYN */
+  /* 2. 🔥 NY FIX: Släck den gamla menyn och dess tomma utrymme (menu space) helt */
   .wrapper > header, header, aside, .wrapper > aside {
     position: relative !important;
-    width: 100% !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     float: none !important;
     clear: both !important;
-    display: block !important;
-    box-sizing: border-box !important;
-    padding: 20px !important;
-    margin-top: 60px !important; /* Ger plats åt hamburgerknappen */
-    left: 0 !important;
-  }
-
-  /* 🔥 NY RAD: Detta raderar den gamla trasiga menylistan i toppen på mobilen */
-  header ul, .wrapper > header ul, aside ul, .wrapper > aside ul {
-    display: none !important;
-  }
-
-  /* Göm bort temats inbyggda GitHub-knappar på mobilen så de inte skräpar */
-  header ul.downloads, header p.view {
-    display: none !important;
+    display: none !important; /* Stänger av ytan helt på mobilen */
+    visibility: hidden !important;
   }
 
   /* 3. DESIGN FÖR DEN NYA, FRISTÅENDE TOUCH-SIDOPANELEN */
@@ -80,18 +70,19 @@ aside {
     display: block !important;
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important; /* Helt dold till vänster till en början */
-    width: 240px !important;
+    left: -280px !important; /* Dold till vänster till en början */
+    width: 250px !important;
     height: 100% !important;
     z-index: 99999 !important;
     background-color: #eeeeee !important;
     padding: 80px 20px 20px 20px !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Mjuk glidande rörelse */
-    overflow-y: auto !important;
+    transition: left 0.3s ease-in-out !important; /* Ger den snygga glidande effekten */
+    overflow-y: auto !important; /* Tillåter skrollning i menyn om länkarna är många */
+    box-sizing: border-box !important;
   }
 
-  /* Tvinga fram listan inuti den NYA mobilmenyn så att den syns */
+  /* Tvinga fram listan inuti den NYA mobilmenyn så att länkarna syns */
   .custom-mobile-drawer ul {
     display: block !important;
     list-style: none !important;
@@ -101,15 +92,16 @@ aside {
 
   .custom-mobile-drawer ul li {
     display: block !important;
-    margin: 15px 0 !important;
+    margin: 18px 0 !important;
   }
 
   .custom-mobile-drawer ul li a {
     text-decoration: none !important;
     color: #333 !important;
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: bold !important;
     display: block !important;
+    font-family: sans-serif !important;
   }
 
   /* 4. Läget som öppnar menyn stabilt på touch-skärmar */
@@ -117,7 +109,7 @@ aside {
     left: 0 !important;
   }
 
-  /* 5. HAMBURGERKNAPPEN */
+  /* 5. DEN NYA STRUKTURELLA HAMBURGERKNAPPEN */
   .fixed-hamburger-btn {
     display: block !important;
     position: fixed !important;
