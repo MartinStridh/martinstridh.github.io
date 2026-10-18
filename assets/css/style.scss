@@ -10,20 +10,17 @@ body {
   max-width: 1500px !important; 
   margin: 0 auto !important; 
 } 
-
 .wrapper { 
   max-width: 1500px !important; 
   width: 100% !important; 
   margin: 0 auto !important; 
   display: block !important; 
 } 
-
 section { 
   width: 80% !important; 
   float: right !important; 
   position: relative !important; 
 } 
-
 aside { 
   width: 15% !important; 
   float: left !important; 
@@ -31,7 +28,6 @@ aside {
   background-color: #dddddd !important; 
   display: block !important; 
 } 
-
 .wrapper::after { 
   content: ""; 
   display: table; 
@@ -39,34 +35,42 @@ aside {
 }
 
 /* ==========================================================================
-   📱 2. MOBIL- OCH SURFPLATTE-FIX (Aktiveras ENBART på skärmar under 768px)
+   📱 2. MOBIL- OCH TOUCH-ANPASSNING (Under 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
   
-  /* Återställ textytan till full bredd på mobilen */
+  /* Göm bort den gamla hamburgerknappen vi testade i CSS:en innan */
+  body::before {
+    display: none !important;
+  }
+
+  /* 1. Tvinga innehållet till full bredd under knappen */
   section {
     width: 95% !important;
     float: none !important;
     clear: both !important;
-    margin: 80px auto 0 auto !important; /* Ger plats för hamburger-knappen */
+    margin: 80px auto 0 auto !important; /* Ger utrymme för knappen */
     display: block !important;
   }
 
-  /* 🛑 SÄKERHETSSPÄRR: Tvinga din artikelrubrik/page header att stanna kvar i texten */
-  section header, section h1, section h2, section h3 {
-    position: relative !important;
+  /* 2. 🔥 FIXA DIN ARTIKELRUBRIK: Rädda din header från att gömmas av temat */
+  section header, 
+  section h1, 
+  section h2, 
+  .wrapper > section header,
+  .wrapper > section h1 {
     display: block !important;
+    position: relative !important;
     visibility: visible !important;
     opacity: 1 !important;
     width: 100% !important;
   }
 
-  /* 🛠️ ENBART temats äkta sidomeny görs om till en glidande sidopanel */
-  /* Genom att skriva '.wrapper > header' och '.wrapper > aside' blockerar vi artikelrubriken */
-  .wrapper > header, .wrapper > aside, body > aside {
+  /* 3. DESIGN FÖR DEN GLIDANDE MOBILMENYN (Styrs via JavaScript-klassen) */
+  .my-isolated-mobile-drawer {
     position: fixed !important;
     top: 0 !important;
-    left: -280px !important; /* Dölj panelen till vänster från början */
+    left: -280px !important; /* Helt gömd till vänster till en början */
     width: 240px !important;
     height: 100% !important;
     z-index: 99999 !important;
@@ -74,37 +78,46 @@ aside {
     padding: 80px 20px 20px 20px !important;
     background-color: #eeeeee !important;
     box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-    transition: left 0.3s ease-in-out !important; /* Snygg animation */
+    transition: left 0.3s ease-in-out !important; /* Mjuk glidande rörelse */
     overflow-y: auto !important;
     display: block !important;
   }
 
-  /* ☰ SKAPA HAMBURGERKNAPPEN VIA CSS (Ingen HTML behövs) */
-  body::before {
-    content: "☰ Menu";
+  /* 4. Detta läge triggas stabilt vid tryck på touchskärmar */
+  .my-isolated-mobile-drawer.drawer-is-visible {
+    left: 0 !important;
+  }
+
+  /* 5. Göm Modernist-temats inbyggda mobilmenyer som lägger sig i toppen */
+  .wrapper > header:not(.my-isolated-mobile-drawer), 
+  body > header:not(.my-isolated-mobile-drawer) {
+    display: none !important;
+  }
+
+  /* 6. DEN NYA STABILA HAMBURGERKNAPPEN */
+  .custom-hamburger-btn {
+    display: block !important;
     position: fixed !important;
     top: 15px;
     left: 15px;
     z-index: 100000 !important;
-    background: #333;
-    color: #fff;
-    padding: 10px 16px;
-    font-size: 15px;
-    font-family: sans-serif;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    background: #333 !important;
+    color: #fff !important;
+    padding: 10px 16px !important;
+    font-size: 15px !important;
+    font-family: sans-serif !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
+    -webkit-appearance: none; /* Fixar iOS-knappars standardutseende */
   }
+}
 
-  /* 🔥 AKTIVERA UTGLIDNINGEN VID TRYCK */
-  /* När man trycker på skärmen/knappen åker den RIKTIGA menyn ut utan att störa rubriken */
-  body:active .wrapper > header, 
-  body:active .wrapper > aside,
-  body:active aside,
-  .wrapper > header:hover,
-  .wrapper > aside:hover,
-  aside:hover {
-    left: 0 !important;
+/* Dölj alltid mobilknappen på stora datorskärmar */
+@media screen and (min-width: 769px) {
+  .custom-hamburger-btn {
+    display: none !important;
   }
 }
