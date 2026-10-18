@@ -133,3 +133,32 @@ header ul.downloads {
 section {
   margin-top: 0px !important; /* Tvingar textinnehållet att docka direkt mot headern */
 }
+
+   /* ==========================================================================
+   🗑️ MODERINIST-FIX: RADERA SIDOMENYNS GRÅA BLOCK HELT
+   ========================================================================== */
+
+/* 1. Dölj och nollställ sidomenyn (aside) så den inte tar någon plats överhuvudtaget */
+aside, .wrapper > aside {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
+}
+
+/* 2. Se till att din textsektion (section) tar upp hela utrymmet som menyn lämnade efter sig */
+section, .wrapper > section {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  margin-left: 0 !important; /* Tar bort indraget som gjordes för sidomenyn */
+  padding-left: 0 !important;
+}
+
+/* 3. Säkerställ att din gradient-header inte påverkas av asides marginaler */
+header, .wrapper > header {
+  float: none !important;
+  width: 100% !important;
+}
