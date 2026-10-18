@@ -39,3 +39,7 @@ header {
     width: 100% !important;
   }
 }
+
+section {
+  margin-top: 0px !important; /* Tvingar textinnehållet att docka direkt mot headern */
+}
