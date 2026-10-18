@@ -120,38 +120,36 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 The final element.
 ```
 
-<!-- Vi skapar ett dolt element som hjälper skriptet att hitta din sidomeny -->
-<span id="sidebar-marker" style="display:none;"></span>
-
-<!-- En helt fristående knapp som inte tillhör temats kod -->
+<!-- Denna hamburgerknapp är helt immun mot temats källkod -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
+
+<!-- En dedikerad mobilsidomeny (Kopiera dina menylänkar till listan nedan) -->
+<div id="clean-mobile-drawer" class="custom-mobile-drawer">
+  <h3>Navigering</h3>
+  <ul>
+    <li><a href="/">Hem</a></li>
+    <li><a href="/om">Om</a></li>
+    <!-- Klistra in dina egna länkar här -->
+  </ul>
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Hitta wrapper-boxen
-    var mainWrapper = document.querySelector(".wrapper");
-    if (!mainWrapper) return;
+    var btn = document.getElementById("triggerMobileMenu");
+    var drawer = document.getElementById("clean-mobile-drawer");
 
-    // 2. Plocka ut det element direkt under wrapper som INTE är texten (section)
-    var trueSidebarMenu = mainWrapper.querySelector(":scope > header") || mainWrapper.querySelector(":scope > aside");
-
-    if (trueSidebarMenu) {
-      // Stämpla den äkta menyn med ett stenhårt ID så att den låses fast i CSS
-      trueSidebarMenu.setAttribute("id", "locked-mobile-drawer");
-
-      var btn = document.getElementById("triggerMobileMenu");
-
+    if (btn && drawer) {
       // Öppna och stäng stabilt vid tryck på touchskärmar
       btn.addEventListener("click", function(e) {
         e.stopPropagation();
-        trueSidebarMenu.classList.toggle("drawer-is-open");
+        drawer.classList.toggle("drawer-is-open");
       });
 
       // Stäng om man klickar på texten utanför sidopanelen
       document.addEventListener("click", function(e) {
-        if (trueSidebarMenu.classList.contains("drawer-is-open")) {
-          if (!trueSidebarMenu.contains(e.target) && e.target !== btn) {
-            trueSidebarMenu.classList.remove("drawer-is-open");
+        if (drawer.classList.contains("drawer-is-open")) {
+          if (!drawer.contains(e.target) && e.target !== btn) {
+            drawer.classList.remove("drawer-is-open");
           }
         }
       });
