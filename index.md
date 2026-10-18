@@ -125,7 +125,6 @@ The final element.
 
 <!-- Den fristående sidopanelen med alla dina 8 unika länkar -->
 <div id="clean-mobile-drawer" class="custom-mobile-drawer">
-  <h3>Navigering</h3>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/use-lund-ecg-parser">Use Lund ECG Parser</a></li>
