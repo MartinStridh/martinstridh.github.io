@@ -173,22 +173,29 @@ header, .wrapper > header {
 }
 
 /* ==========================================================================
-   ☕ FIXA CODBLOCKENS INDRAG (JAVA-KOD UNDER H3) - UPPDATERAD TVÅNGSBREDD
+   ☕ NY STRATEGI: SEPARERAD STRUKTUR FÖR KODBLOCK (MODERNIST-FIX)
    ========================================================================== */
 
-pre, code, pre code {
-  margin-left: -25px !important;       /* Drar ut det svarta fältet till vänsterkanten */
-  margin-right: 0px !important;        /* Nollställer högermarginalen så calc sköter resten */
-  padding-left: 25px !important;       /* Snyggt avstånd för texten på insidan till vänster */
-  padding-right: 25px !important;      /* Snyggt avstånd för texten på insidan till höger */
-  box-sizing: border-box !important;   /* Ser till att padding räknas inuti fältet */
-  display: block !important;           /* Tvingar lådan att agera som ett blockelement */
-  
-  /* 🔥 KROSSAR ALLA DOLDA SPÄRRAR I MODERNIST-TEMAT 🔥 */
-  max-width: none !important;          
+/* 1. Fixa själva den svarta ytterlådan */
+pre {
+  display: block !important;
+  margin-left: -25px !important;
+  margin-right: -25px !important; /* Tvingar ut högerkanten utan calc-problem */
+  width: auto !important;          /* Låter marginalerna bestämma bredden */
+  max-width: none !important;      /* Krossar breddspärrar */
   min-width: 0 !important;
+  padding: 20px 25px !important;   /* Skapar luft inuti lådan */
+  box-sizing: border-box !important;
+  overflow-x: auto !important;     /* Ger scrollbar om koden är för lång */
+}
 
-  /* 🔥 DEN MATEMATISKA FIXEN MED MELLANRUM RUNT PLUSTECKNET 🔥 */
-  width: calc(100% + 50px) !important; 
+/* 2. Nollställ inline-koden inuti blocket så den inte ärver fel marginaler */
+pre code {
+  display: inline !important;      /* Tvingas inte till ett eget block inuti */
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important; /* Undviker dubbla bakgrunder */
+  max-width: none !important;
+  width: auto !important;
 }
 }
