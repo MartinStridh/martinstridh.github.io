@@ -11,19 +11,23 @@ body {
   max-width: 1500px !important; 
   margin: 0 auto !important; 
 } 
-// 1. Force the entire screen's background to be a solid, static color on ALL 4 sides
+// 1. Uniform background on all sides
 html, body {
   background: #f8fafc !important; 
 }
 
-// 2. Clear out the theme's default inner container styles so it matches the outer frame perfectly
+// 2. CLEARED BACKGROUND BUT RESTORED BORDER
 .wrapper {
   background: transparent !important;
   box-shadow: none !important;
-  border: none !important;
+  
+  // Re-creates the missing frame line using a modern, crisp slate border
+  border: 1px solid #cbd5e1 !important; 
+  border-top: none !important; /* Prevents an awkward double line against the header */
+  border-radius: 0 0 6px 6px !important; /* Softens the bottom corners of your frame */
 }
 
-// 3. Keep your elegant metallic gradient header
+// 3. Elegant metallic gradient header
 header {
   background: linear-gradient(180deg, #ffffff 0%, #f4f6f8 60%, #e9ecef 100%) !important;
   border-bottom: 1px solid #cbd5e1 !important; 
