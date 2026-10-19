@@ -1,45 +1,25 @@
 ---
 ---
+// 1. SET THE COLORS BEFORE IMPORTING (This preserves 100% of the original layout)
+// This overrides the native theme variables so shadows, margins, and borders stay intact.
+$body-background: #f8fafc; 
+
 @import "{{ site.theme }}";
 
-// 1. Force a solid, static background on all 4 sides of the browser window
+// 2. FORCE THE COHESIVE OUTSIDE BACKGROUND
 html, body {
   background: #f8fafc !important; 
 }
 
-// 2. KEEP NATIVE SIDE SPACING (By leaving wrapper transparent)
-.wrapper {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-// 3. TARGET THE TEXT CONTAINER (This cleanly isolates the frame lines & shadows)
-section {
-  background: #ffffff !important; 
-  border: 1px solid #94a3b8 !important; 
-  border-top: none !important;
-  
-  // Re-establishes the multi-layer depth shadow underneath the main text card
-  box-shadow: 
-    0 10px 25px -5px rgba(15, 23, 42, 0.08), 
-    0 8px 16px -6px rgba(15, 23, 42, 0.12) !important;
-    
-  // Perfectly rounds out the bottom edges of the content block
-  border-radius: 0 0 6px 6px !important; 
-}
-
-// 4. ELEGANT METALLIC GRADIENT HEADER (Drawn with its own distinct top frame edge)
+// 3. ELEGANT METALLIC GRADIENT HEADER
 header {
   background: linear-gradient(180deg, #ffffff 0%, #f4f6f8 60%, #e9ecef 100%) !important;
-  border: 1px solid #94a3b8 !important; /* Draws the top boundary line cleanly */
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.6) !important;
-  border-radius: 6px 6px 0 0 !important; /* Perfectly rounds out the top edges */
 }
 
-// 5. WINE RED TYPOGRAPHY
+// 4. BRIGHTENED WINE RED TYPOGRAPHY
 header h1 {
-  color: #9f2a3b !important; /* Lightened Garnet Wine Red */
+  color: #9f2a3b !important; /* Vibrant Garnet Wine Red */
   font-weight: 700 !important;
 }
 
@@ -47,7 +27,7 @@ header p {
   color: #5c1d24 !important; /* Rich Dark Maroon Tagline */
 }
 
-// 6. BUTTONS (Premium Deep Obsidian/Slate)
+// 5. ACTION BUTTONS (Premium Deep Slate/Obsidian)
 header ul li a {
   background: linear-gradient(#1e293b, #0f172a) !important; 
   color: #ffffff !important;
