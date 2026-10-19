@@ -67,6 +67,7 @@ header h1 {
 }
 header p {
   color: #5c1d24 !important;
+  font-weight: bold !important;      /* Behåller vanlig texttjocklek */
 }
 
 /* Tvinga även textsektionen att hoppa hela vägen upp till gradientens kant */
@@ -228,7 +229,7 @@ header a {
   color: #5c1d24 !important;           /* Samma mörka vinröda som din vanliga beskrivningstext */
   text-decoration: none !important;    /* Raderar den turkosa/blå understrykningen helt */
   border-bottom: none !important;      /* Tar bort eventuella dolda linjer som temat ibland lägger till */
-  font-weight: normal !important;      /* Behåller vanlig texttjocklek */
+  font-weight: bold !important;      /* Behåller vanlig texttjocklek */
   cursor: pointer !important;          /* Visar fortfarande klick-handen när man hovrar */
 }
 
