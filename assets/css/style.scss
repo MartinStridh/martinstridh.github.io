@@ -173,20 +173,22 @@ header, .wrapper > header {
 }
 
 /* ==========================================================================
-   ☕ FIXA CODBLOCKENS INDRAG (JAVA-KOD UNDER H3) - EXAKT SYMMETRI
+   ☕ FIXA CODBLOCKENS INDRAG (JAVA-KOD UNDER H3) - UPPDATERAD TVÅNGSBREDD
    ========================================================================== */
 
 pre, code, pre code {
-  margin-left: -25px !important;       /* Håller koden klistrad mot vänsterkanten */
-  margin-right: 0px !important;      /* Tvingar bort alla dolda högermarginaler */
-  padding-left: 25px !important;     /* Snyggt tomrum för texten inuti till vänster */
-  padding-right: 25px !important;    /* Snyggt tomrum för texten inuti till höger */
-  box-sizing: border-box !important;    /* Räknar padding inifrån så lådan inte spricker */
+  margin-left: -25px !important;       /* Drar ut det svarta fältet till vänsterkanten */
+  margin-right: 0px !important;        /* Nollställer högermarginalen så calc sköter resten */
+  padding-left: 25px !important;       /* Snyggt avstånd för texten på insidan till vänster */
+  padding-right: 25px !important;      /* Snyggt avstånd för texten på insidan till höger */
+  box-sizing: border-box !important;   /* Ser till att padding räknas inuti fältet */
+  display: block !important;           /* Tvingar lådan att agera som ett blockelement */
   
-  /* 🔥 DE HÄR RADERNA TVINGAR UT DET SVARTA FÄLTET TILL HÖGERKANTEN 🔥 */
-  display: block !important;         /* Gör lådan till ett fullbrett blockelement */
-  max-width: none !important;          /* Tar helt bort Modernist-temats dolda maxbreddsspärr */
-  width: calc(100% + 100px) !important;
+  /* 🔥 KROSSAR ALLA DOLDA SPÄRRAR I MODERNIST-TEMAT 🔥 */
+  max-width: none !important;          
+  min-width: 0 !important;
 
+  /* 🔥 DEN MATEMATISKA FIXEN MED MELLANRUM RUNT PLUSTECKNET 🔥 */
+  width: calc(100% + 50px) !important; 
 }
 }
