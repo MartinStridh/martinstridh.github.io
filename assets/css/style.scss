@@ -2,26 +2,38 @@
 ---
 @import "{{ site.theme }}";
 
+/* 1. Tvinga en enhetlig bakgrundsfärg i tomrummet utanför din 1500px breda ram */
+html, body {
+  background: #f8fafc !important;
+}
+
+/* 2. SÄTT RAMENS MAXBREDD OCH CENTRERA DEN SÅ SIDOSPEL UPPSTÅR */
 .wrapper { 
-  max-width: 1500px !important; 
-  width: 100% !important; 
-  margin: 0 auto !important; 
+  box-sizing: border-box !important; /* Tvingar webbläsaren att räkna in padding inuti bredden */
+  max-width: 1500px !important;      /* Begränsar ramen till dina önskade 1500px */
+  width: 92% !important;             /* Gör att ramen blir smalare än skärmen och lämnar sidospelet frigjort */
+  margin: 40px auto !important;      /* 40px luft uppe/nere och 'auto' centrerar boxen perfekt */
   display: block !important; 
+  background: #ffffff !important;    /* Inuti ramen är det rent vitt */
+  
+  // Återställer en skarp modern ramlinje och sidoskugga runt hela din 1500px-box
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: inset 0 1px 0 #ffffff, 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
+  border-radius: 6px !important;
 } 
 
-/* 1. Tvinga din textsektion att ta FULL bredd under din header */
+/* Tvinga din textsektion att ta FULL bredd under din header */
 section, .wrapper > section { 
   width: 100% !important; 
   float: none !important; 
   clear: both !important; 
   position: relative !important; 
   display: block !important;
-  margin: 10px auto 0 auto !important; /* Minskat avstånd så texten flyttar upp */
+  margin: 10px auto 0 auto !important; 
   box-sizing: border-box !important;
 } 
 
-/* 2. ✅ BEHÅLL TEMATS ORIGINALBAKGRUND OCH TONING */
-/* Vi rör inte 'background', så att din snygga originaltoning sparas helt! */
+/* 2. ✅ BEHÅLL TEMATS ORIGINALBAKGRUND OCH TONING (Eller din eleganta metallic gradient) */
 .wrapper > header, header, aside, .wrapper > aside {
   position: relative !important;
   width: 100% !important;
@@ -30,22 +42,35 @@ section, .wrapper > section {
   clear: both !important;
   display: block !important;
   visibility: visible !important;
-  margin-top: 60px !important;       /* Ger utrymme för din hamburgerknapp */
-  box-sizing: border-box !important;   /* Ser till att bredden stämmer perfekt */
+  margin-top: 60px !important;       
+  box-sizing: border-box !important;   
 
-  /* 🔥 NYA RADER SOM KLIPPER BORT DET 1.5CM GRÅA BLOCKET UNDER GRADIENTEN 🔥 */
-  padding-bottom: 10px !important;      /* Tvingar gradienten att sluta direkt under texten */
-  border-bottom: none !important;      /* Raderar Modernist-temats tjocka, gråa bottenlinje */
+  /* Klipper bort det gråa blocket under gradienten */
+  padding-bottom: 10px !important;      
+  border-bottom: none !important;      
+  
+  // Gör att headerns bakgrund tonar snyggt inuti den nya runda ramen
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6f8 60%, #e9ecef 100%) !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+
+/* Ljusad Vinröd Rubrik och Mörkare Vinröd text i headern */
+header h1 {
+  color: #9f2a3b !important;
+  font-weight: 700 !important;
+}
+header p {
+  color: #5c1d24 !important;
 }
 
 /* Tvinga även textsektionen att hoppa hela vägen upp till gradientens kant */
 section, .wrapper > section {
-  border-top: none !important;         /* Tar bort Modernists gråa topplinje på texten */
-  margin-top: 0px !important;          /* Tar bort tomrummet ovanför texten */
-  padding-top: 20px !important;        /* Ger ett lagom stort, rent avstånd för brödtexten */
+  border-top: none !important;         
+  margin-top: 0px !important;          
+  padding-top: 20px !important;        
 }
 
-/* 🛑 NY FIX: Vi döljer listorna och NOLLSTÄLLER deras utrymme helt så att det gråa gapet raderas */
+/* Döljer listorna och nollställer deras utrymme helt så att det gråa gapet raderas */
 .wrapper > header ul, 
 header ul, 
 aside ul,
@@ -63,7 +88,6 @@ header ul.downloads {
    ☰ DESIGN FÖR DEN NYA NAVIGATIONSPANELEN OCH HAMBURGERKNAPPEN
    ========================================================================== */
 
-/* 3. HAMBURGERKNAPPEN (Fixerad överst till vänster) */
 .fixed-hamburger-btn {
   display: block !important;
   position: fixed !important;
@@ -83,7 +107,6 @@ header ul.downloads {
   -webkit-appearance: none;
 }
 
-/* 4. DEN FRISTÅENDE SIDOPANELEN (Dold till vänster från början) */
 .custom-mobile-drawer {
   display: block !important;
   position: fixed !important;
@@ -95,12 +118,11 @@ header ul.downloads {
   background-color: #eeeeee !important;
   padding: 80px 20px 20px 20px !important;
   box-shadow: 4px 0 15px rgba(0,0,0,0.3) !important;
-  transition: left 0.3s ease-in-out !important; /* Mjuk glidande animation */
+  transition: left 0.3s ease-in-out !important; 
   overflow-y: auto !important; 
   box-sizing: border-box !important;
 }
 
-/* Tvinga fram länklistan i vår EGEN nya sidopanel så att dina 8 länkar syns */
 .custom-mobile-drawer ul {
   display: block !important;
   list-style: none !important;
@@ -122,20 +144,18 @@ header ul.downloads {
   font-family: sans-serif !important;
 }
 
-/* 5. Öppet läge när man klickar på knappen */
 .custom-mobile-drawer.drawer-is-open {
   left: 0 !important;
 }
 
 section {
-  margin-top: 0px !important; /* Tvingar textinnehållet att docka direkt mot headern */
+  margin-top: 0px !important; 
 }
 
-   /* ==========================================================================
+/* ==========================================================================
    🗑️ MODERINIST-FIX: RADERA SIDOMENYNS GRÅA BLOCK HELT
    ========================================================================== */
 
-/* 1. Dölj och nollställ sidomenyn (aside) så den inte tar någon plats överhuvudtaget */
 aside, .wrapper > aside {
   display: none !important;
   width: 0 !important;
@@ -145,49 +165,38 @@ aside, .wrapper > aside {
   visibility: hidden !important;
 }
 
-/* 2. Se till att din textsektion (section) tar upp hela utrymmet som menyn lämnade efter sig */
 section, .wrapper > section {
   width: 100% !important;
   max-width: 100% !important;
   float: none !important;
-  margin-left: 0 !important; /* Tar bort indraget som gjordes för sidomenyn */
-  padding-left: 25px !important;   /* Skjuter in brödtext och rubriker 25px från vänster */
-  padding-right: 25px !important;  /* Skjuter in brödtext från höger */
+  margin-left: 0 !important; 
+  padding-left: 25px !important;   
+  padding-right: 25px !important;  
   box-sizing: border-box !important;   
 }
 
-/* 3. Säkerställ att din gradient-header inte påverkas av asides marginaler */
 header, .wrapper > header {
   float: none !important;
   width: 100% !important;
 }
 
-
 /* ==========================================================================
-   ☕ STRATEGI 4: ABSOLUT VIEWPORT-UTBRYTNING (FULL BREDD TILL HÖGERKANT)
+   ☕ STRATEGI 4: ABSOLUT VIEWPORT-UTBRYTNING (KODBLOCK UTSTECK)
    ========================================================================== */
 
-/* 1. Lyft ut pre ur det vanliga flödet för att ignorera sidans marginaler */
 pre {
   display: block !important;
   position: relative !important;
-  
-  /* Drar ut fältet symmetriskt baserat på procentuell marginal */
   width: calc(100% + 50px) !important;
   margin-left: -25px !important;
   margin-right: -25px !important;
-  
-  /* Tvingar bort alla typer av begränsningar */
   max-width: none !important;
   min-width: 0 !important;
-  
-  /* Intern luft och scrollbar om koden ändå blir för lång */
   padding: 20px 25px !important;
   box-sizing: border-box !important;
   overflow-x: auto !important;
 }
 
-/* 2. Säkerställ att texten inuti inte kollapsar eller ärver fel stilar */
 pre code {
   display: inline !important;
   margin: 0 !important;
@@ -198,9 +207,7 @@ pre code {
   width: auto !important;
 }
 
-/* 3. Tvinga Modernist-temats alla containers att släppa utsticket */
-.wrapper, section, #wrapper, .container {
-  max-width: none !important;
+// Raderna som nollställde .wrapper och förstörde sidospelet i slutet är nu borttagna!
+section, #wrapper, .container {
   overflow: visible !important;
 }
-
