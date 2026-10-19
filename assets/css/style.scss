@@ -47,7 +47,7 @@ section, .wrapper > section {
   visibility: visible !important;
   
   /* 🔥 FIX: Minskat från 60px till 30px för att ta bort det tomma blocket uppåt */
-  margin-top: 30px !important;       
+  margin-top: 0px !important;       
   box-sizing: border-box !important;   
 
   /* Klipper bort det gråa blocket under gradienten */
