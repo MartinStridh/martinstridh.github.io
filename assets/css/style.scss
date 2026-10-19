@@ -172,30 +172,43 @@ header, .wrapper > header {
   width: 100% !important;
 }
 
+
 /* ==========================================================================
-   ☕ NY STRATEGI: SEPARERAD STRUKTUR FÖR KODBLOCK (MODERNIST-FIX)
+   ☕ STRATEGI 3: VIEWPORT-BRYTNING (Tvingar kodblocket utanför föräldern)
    ========================================================================== */
 
-/* 1. Fixa själva den svarta ytterlådan */
+/* 1. Bryt ut den svarta ytterlådan helt baserat på skärmens bredd */
 pre {
   display: block !important;
+  position: relative !important;
+  
+  /* Räknar ut exakt hur mycket fältet ska expandera oavsett föräldraelementets bredd */
+  width: calc(100% + 50px) !important; 
   margin-left: -25px !important;
-  margin-right: -25px !important; /* Tvingar ut högerkanten utan calc-problem */
-  width: auto !important;          /* Låter marginalerna bestämma bredden */
-  max-width: none !important;      /* Krossar breddspärrar */
+  margin-right: -25px !important;
+  
+  max-width: none !important;
   min-width: 0 !important;
-  padding: 20px 25px !important;   /* Skapar luft inuti lådan */
+  
+  /* Säkerställ att förälderns overflow inte klipper just detta element */
+  overflow-x: auto !important; 
+  
+  padding: 20px 25px !important;
   box-sizing: border-box !important;
-  overflow-x: auto !important;     /* Ger scrollbar om koden är för lång */
 }
 
-/* 2. Nollställ inline-koden inuti blocket så den inte ärver fel marginaler */
+/* 2. Nollställ koden inuti blocket */
 pre code {
-  display: inline !important;      /* Tvingas inte till ett eget block inuti */
+  display: inline !important;
   margin: 0 !important;
   padding: 0 !important;
-  background: transparent !important; /* Undviker dubbla bakgrunder */
-  max-width: none !important;
-  width: auto !important;
+  background: transparent !important;
+  white-space: pre !important; /* Bevarar Java-kodens radbrytningar och indrag */
 }
+
+/* 3. Säkerställ att eventuella dolda spärrar på sektionen tillåter utstickande kodblock */
+section, .wrapper {
+  overflow: visible !important;
+}
+
 }
