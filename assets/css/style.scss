@@ -7,18 +7,21 @@ html, body {
   background: #f8fafc !important;
 }
 
-/* 2. SÄTT RAMENS MAXBREDD OCH CENTRERA DEN SÅ SIDOSPEL UPPSTÅR */
+/* 2. SÄTT RAMENS MAXBREDD, SKUGGA OCH CENTRERA DEN */
 .wrapper { 
-  box-sizing: border-box !important; /* Tvingar webbläsaren att räkna in padding inuti bredden */
-  max-width: 1500px !important;      /* Begränsar ramen till dina önskade 1500px */
-  width: 92% !important;             /* Gör att ramen blir smalare än skärmen och lämnar sidospelet frigjort */
-  margin: 40px auto !important;      /* 40px luft uppe/nere och 'auto' centrerar boxen perfekt */
+  box-sizing: border-box !important; 
+  max-width: 1500px !important;      
+  width: 94% !important;             /* Lämnar ett elegant och symmetriskt sidospel på stora skärmar */
+  margin: 40px auto !important;      /* Centrerar ramen perfekt i mitten av webbläsarfönstret */
   display: block !important; 
   background: #ffffff !important;    /* Inuti ramen är det rent vitt */
   
-  // Återställer en skarp modern ramlinje och sidoskugga runt hela din 1500px-box
+  // ÅTERSTÄLLD OCH FÖRSTÄRKT EXTRA DJUP SIDOSKUGGA OCH RAMLINJE
   border: 1px solid #cbd5e1 !important;
-  box-shadow: inset 0 1px 0 #ffffff, 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 
+    inset 0 1px 0 #ffffff, 
+    0 15px 35px -5px rgba(15, 23, 42, 0.18), 
+    0 10px 20px -6px rgba(15, 23, 42, 0.22) !important;
   border-radius: 6px !important;
 } 
 
@@ -33,7 +36,7 @@ section, .wrapper > section {
   box-sizing: border-box !important;
 } 
 
-/* 2. ✅ BEHÅLL TEMATS ORIGINALBAKGRUND OCH TONING (Eller din eleganta metallic gradient) */
+/* 3. EFFEKTIV GRADIENT HEADER OCH FIX FÖR EXTRA HÖJD */
 .wrapper > header, header, aside, .wrapper > aside {
   position: relative !important;
   width: 100% !important;
@@ -42,14 +45,16 @@ section, .wrapper > section {
   clear: both !important;
   display: block !important;
   visibility: visible !important;
-  margin-top: 60px !important;       
+  
+  /* 🔥 FIX: Minskat från 60px till 30px för att ta bort det tomma blocket uppåt */
+  margin-top: 30px !important;       
   box-sizing: border-box !important;   
 
   /* Klipper bort det gråa blocket under gradienten */
   padding-bottom: 10px !important;      
   border-bottom: none !important;      
   
-  // Gör att headerns bakgrund tonar snyggt inuti den nya runda ramen
+  // Elegant ljus metallic-gradient inuti headern
   background: linear-gradient(180deg, #ffffff 0%, #f4f6f8 60%, #e9ecef 100%) !important;
   border-radius: 6px 6px 0 0 !important;
 }
@@ -207,7 +212,6 @@ pre code {
   width: auto !important;
 }
 
-// Raderna som nollställde .wrapper och förstörde sidospelet i slutet är nu borttagna!
 section, #wrapper, .container {
   overflow: visible !important;
 }
