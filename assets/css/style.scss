@@ -11,9 +11,9 @@ body {
   max-width: 1500px !important; 
   margin: 0 auto !important; 
 } 
-// 1. Outer page margins (Soft, modern Alabaster gray)
+// 1. Outer Frame: Uniform, soft Alabaster gray on ALL sides (Left, Right, Top, Bottom)
 html {
-  background: #f8fafc linear-gradient(#f1f5f9, #f8fafc) fixed !important;
+  background: #f8fafc !important; 
 }
 
 // 2. NEW Elegantly Gradient Header (Pearl White blending smoothly into Satin Silver)
