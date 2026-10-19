@@ -174,40 +174,43 @@ header, .wrapper > header {
 
 
 /* ==========================================================================
-   ☕ STRATEGI 3: VIEWPORT-BRYTNING (Tvingar kodblocket utanför föräldern)
+   ☕ STRATEGI 4: ABSOLUT VIEWPORT-UTBRYTNING (FULL BREDD TILL HÖGERKANT)
    ========================================================================== */
 
-/* 1. Bryt ut den svarta ytterlådan helt baserat på skärmens bredd */
+/* 1. Lyft ut pre ur det vanliga flödet för att ignorera sidans marginaler */
 pre {
   display: block !important;
   position: relative !important;
   
-  /* Räknar ut exakt hur mycket fältet ska expandera oavsett föräldraelementets bredd */
-  width: calc(100% + 50px) !important; 
+  /* Drar ut fältet symmetriskt baserat på procentuell marginal */
+  width: calc(100% + 50px) !important;
   margin-left: -25px !important;
   margin-right: -25px !important;
   
+  /* Tvingar bort alla typer av begränsningar */
   max-width: none !important;
   min-width: 0 !important;
   
-  /* Säkerställ att förälderns overflow inte klipper just detta element */
-  overflow-x: auto !important; 
-  
+  /* Intern luft och scrollbar om koden ändå blir för lång */
   padding: 20px 25px !important;
   box-sizing: border-box !important;
+  overflow-x: auto !important;
 }
 
-/* 2. Nollställ koden inuti blocket */
+/* 2. Säkerställ att texten inuti inte kollapsar eller ärver fel stilar */
 pre code {
   display: inline !important;
   margin: 0 !important;
   padding: 0 !important;
   background: transparent !important;
-  white-space: pre !important; /* Bevarar Java-kodens radbrytningar och indrag */
+  white-space: pre !important; 
+  max-width: none !important;
+  width: auto !important;
 }
 
-/* 3. Säkerställ att eventuella dolda spärrar på sektionen tillåter utstickande kodblock */
-section, .wrapper {
+/* 3. Tvinga Modernist-temats alla containers att släppa utsticket */
+.wrapper, section, #wrapper, .container {
+  max-width: none !important;
   overflow: visible !important;
 }
 
