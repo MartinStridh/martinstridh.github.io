@@ -11,9 +11,24 @@ body {
   max-width: 1500px !important; 
   margin: 0 auto !important; 
 } 
+// Outer page margins: A clean, very dark charcoal-wine gradient
+html {
+  background: #161213 linear-gradient(#1f1618, #110a0b) fixed !important;
+}
+
+// Your requested Wine Red Header
 header {
-  background: linear-gradient(#4a0e17, #2b050a) !important; /* Rich Burgundy to Deep Wine Black */
-  border-bottom: 1px solid #721c24 !important;          /* Crimson Border Accent */
+  background: linear-gradient(#4a0e17, #2b050a) !important;
+  border-bottom: 1px solid #721c24 !important;
+}
+
+// Interactive Buttons: Vibrant garnet red for high contrast readability
+header ul li a {
+  background: linear-gradient(#962d37, #5c131a) !important;
+  border: 1px solid #721c24 !important;
+}
+header ul li a:hover {
+  background: linear-gradient(#b83b47, #7a1b24) !important; /* Subtle glow on hover */
 }
 
 .wrapper { 
