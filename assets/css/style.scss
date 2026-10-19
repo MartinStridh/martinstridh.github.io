@@ -8,28 +8,6 @@
 
 
 
-// 4. VINRÖD TYPOGRAFI
-header h1 {
-  color: #9f2a3b !important; /* Den ljusade granatäppelröda färgen */
-  font-weight: 700 !important;
-}
-
-header p {
-  color: #5c1d24 !important; /* Mörkare vinröd för god läsbarhet */
-}
-
-// 5. KNAPPAR (Premium Mörkt Skiffer/Antracit)
-header ul li a {
-  background: linear-gradient(#1e293b, #0f172a) !important; 
-  color: #ffffff !important;
-  border: 1px solid #0f172a !important;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08) !important;
-}
-
-header ul li a:hover {
-  background: linear-gradient(#334155, #1e293b) !important;
-}
-
 .wrapper { 
   max-width: 1500px !important; 
   width: 100% !important; 
