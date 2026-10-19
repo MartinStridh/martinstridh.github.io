@@ -67,7 +67,7 @@ header h1 {
 }
 header p {
   color: #5c1d24 !important;
-  font-weight: bold !important;      /* Behåller vanlig texttjocklek */
+  font-weight: normal !important;      /* Behåller vanlig texttjocklek */
 }
 
 /* Tvinga även textsektionen att hoppa hela vägen upp till gradientens kant */
