@@ -1,16 +1,10 @@
----
+e ---
 layout: default
 ---
-
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./another-page.html).
-
 An open research community dedicated to developing and applying the Lund ECG Parser software in ECG-related research.
 
-# Header 1
-
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+# Welcome to the Lund ECG Parser Research Community homepage
+This is an open research community dedicated to developing and applying the Lund ECG Parser software (formerly commercialized under the names Cardiolund ECG Parser and Cardiolund AFR Tracker) in ECG-related research.
 
 ## Header 2
 
