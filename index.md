@@ -8,49 +8,49 @@ The Lund ECG Parser is an automated software tool that transforms 1-lead to 12-l
 
 The Lund ECG Parser has been integrated into several commercial cardiac monitoring systems, clinical screening trials, and research datasets for automated ECG rhythm analysis and atrial fibrillation (AF) detection:
 
->**Commercial & Medical Device Integrations**:
->
->• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, beat classification, and rhythm categorization.
->
->• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation detection.
->
->**Clinical Studies & Research Programs**:
->
->• STROKESTOP Studies: Validated in landmark Swedish population screening studies for detecting atrial fibrillation.
->
->• SAFER Study / SAFER Feasibility Study: Used for quality labeling and rhythm identification in the SAFER screening program (Screening for Atrial Fibrillation with ECG to Reduce Stroke) using Zenicor thumb-ECG devices.
->
->• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 categories, and reduce manual ECG review workloads.
+**Commercial & Medical Device Integrations**:
+
+• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, beat classification, and rhythm categorization.
+
+• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation detection.
+
+**Clinical Studies & Research Programs**:
+
+• STROKESTOP Studies: Validated in landmark Swedish population screening studies for detecting atrial fibrillation.
+
+• SAFER Study / SAFER Feasibility Study: Used for quality labeling and rhythm identification in the SAFER screening program (Screening for Atrial Fibrillation with ECG to Reduce Stroke) using Zenicor thumb-ECG devices.
+
+• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 categories, and reduce manual ECG review workloads.
 
 ### Lund AFR Tracker
 
 Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund ECG Parser that automatically calculates the Atrial Fibrillatory Rate (AFR) from ECG signals.
 
->**Core Function**:
->
-> • It measures the repetition rate and the degree of organization of atrial fibrillatory waves (f-waves) in the ECG.
->
-> • Technical Process: It removes ventricular activity (QRS complexes and T-waves) via spatiotemporal QRST cancellation and applies sequential time-frequency tracking.
->
-> • Resolution & Output: It analyzes signals on a second-to-second basis, generating trends, segment-wise averages, and standard deviations over minutes, hours, or multi-day Holter recordings.
-> 
-> • Requirements: It is designed for 12-lead ECG systems (most commonly using lead V1) or specialized Holter/esophagus/veterinary leads with a strong atrial signal.
->
->**Where Has It Been Used?**
->
-> • Clinical & Research Studies: Used extensively in cardiology research to study atrial electrical properties and predict the outcomes of direct current (DC) cardioversion, ablation therapy, and spontaneous termination of paroxysmal atrial fibrillation (AF).
-> 
-> • Implantable & Long-Term Monitoring: Applied to extract f-wave/AFR data from implantable loop recorders (ILRs) and cardiac monitors to evaluate long-term AF burden and remodeling.
-> 
-> • Veterinary Cardiology: Widely validated and utilized in large-animal (equine) clinical studies to monitor atrial fibrillatory dynamics and post-cardioversion recurrence in horses with persistent AF.
->
->**Use in Antiarrhythmic Drug Response Studies**
->
-> • Drug Action Monitoring: The AFR Tracker measures how fast or slow the atrial activation rate becomes following pharmacological intervention, acting as a non-invasive surrogate marker for changes in the atrial action potential duration and effective refractory period.
-> 
-> • Specific Drug Studies: It has been used to track and quantify atrial rate slowing and prediction of drug-induced conversion for established and novel antiarrhythmic agents—including flecainide, dofetilide, ranolazine, quinidine, AZD7009, SECRET and SECRET.
->
-> • Predicting Success: A lower or dropping AFR during drug therapy generally indicates a higher likelihood of successful pharmacological or electrical cardioversion, whereas a high or unreduced AFR often correlates with drug resistance or early recurrence.
+**Core Function**:
+
+ • It measures the repetition rate and the degree of organization of atrial fibrillatory waves (f-waves) in the ECG.
+
+ • Technical Process: It removes ventricular activity (QRS complexes and T-waves) via spatiotemporal QRST cancellation and applies sequential time-frequency tracking.
+
+ • Resolution & Output: It analyzes signals on a second-to-second basis, generating trends, segment-wise averages, and standard deviations over minutes, hours, or multi-day Holter recordings.
+ 
+ • Requirements: It is designed for 12-lead ECG systems (most commonly using lead V1) or specialized Holter/esophagus/veterinary leads with a strong atrial signal.
+
+**Where Has It Been Used?**
+
+ • Clinical & Research Studies: Used extensively in cardiology research to study atrial electrical properties and predict the outcomes of direct current (DC) cardioversion, ablation therapy, and spontaneous termination of paroxysmal atrial fibrillation (AF).
+ 
+ • Implantable & Long-Term Monitoring: Applied to extract f-wave/AFR data from implantable loop recorders (ILRs) and cardiac monitors to evaluate long-term AF burden and remodeling.
+ 
+ • Veterinary Cardiology: Widely validated and utilized in large-animal (equine) clinical studies to monitor atrial fibrillatory dynamics and post-cardioversion recurrence in horses with persistent AF.
+
+**Use in Antiarrhythmic Drug Response Studies**
+
+ • Drug Action Monitoring: The AFR Tracker measures how fast or slow the atrial activation rate becomes following pharmacological intervention, acting as a non-invasive surrogate marker for changes in the atrial action potential duration and effective refractory period.
+ 
+ • Specific Drug Studies: It has been used to track and quantify atrial rate slowing and prediction of drug-induced conversion for established and novel antiarrhythmic agents—including flecainide, dofetilide, ranolazine, quinidine, AZD7009, SECRET and SECRET.
+
+ • Predicting Success: A lower or dropping AFR during drug therapy generally indicates a higher likelihood of successful pharmacological or electrical cardioversion, whereas a high or unreduced AFR often correlates with drug resistance or early recurrence.
 
 ## How to use Lund ECG Parser and Lund AFR Tracker?
 
