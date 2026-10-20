@@ -20,7 +20,7 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 >
 >• SAFER Study / SAFER Feasibility Study: Used for quality labeling and rhythm identification in the SAFER screening program (Screening for Atrial Fibrillation with ECG to Reduce Stroke) using Zenicor thumb-ECG devices.
 >
->• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 clinical groups, and reduce manual ECG review workloads
+>• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 categories, and reduce manual ECG review workloads.
 
 ### Lund AFR Tracker
 
