@@ -24,7 +24,7 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 
 ### Lund AFR Tracker
 
-Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund ECG Parser that automatically calculates the Atrial Fibrillatory Rate (AFR) from electrocardiogram (ECG) signals.
+Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund ECG Parser that automatically calculates the Atrial Fibrillatory Rate (AFR) from ECG signals.
 
 >**Core Function**:
 
