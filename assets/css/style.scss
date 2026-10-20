@@ -244,3 +244,11 @@ header a:hover {
 section, .wrapper > section {
   background: #ffffff !important; /* Tvingar textrutan att bli helt solid vit */
 }
+
+blockquote {
+    background-color: #f9f9f9;  /* Ljusgrå bakgrund */
+    color: #555555;             /* Mörkgrå text (mjukare än helt svart) */
+    border-left: 5px solid #0076ff; /* Blått streck till vänster */
+    padding: 15px;              /* Inre marginal så texten inte ligger mot kanten */
+    margin: 10px 0;             /* Yttre marginal uppe och nere */
+}
