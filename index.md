@@ -8,13 +8,13 @@ The Lund ECG Parser is an automated software tool that transforms 1-lead to 12-l
 
 The Lund ECG Parser has been integrated into several commercial cardiac monitoring systems, clinical screening trials, and research datasets for automated ECG rhythm analysis and atrial fibrillation (AF) detection:
 
->Commercial & Medical Device Integrations:
+>**Commercial & Medical Device Integrations**:
 >
 >• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, >beat classification, and rhythm categorization.
 >
 >• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation >detection.
-
->Clinical Studies & Research Programs:
+>
+>**Clinical Studies & Research Programs**:
 >
 >• STROKESTOP Studies: Validated in landmark Swedish population screening studies for detecting atrial fibrillation.
 >
