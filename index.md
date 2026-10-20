@@ -10,17 +10,17 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 
 >**Commercial & Medical Device Integrations**:
 >
->• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, >beat classification, and rhythm categorization.
+>• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, beat classification, and rhythm categorization.
 >
->• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation >detection.
+>• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation detection.
 >
 >**Clinical Studies & Research Programs**:
 >
 >• STROKESTOP Studies: Validated in landmark Swedish population screening studies for detecting atrial fibrillation.
 >
->• SAFER Study / SAFER Feasibility Study: Used for quality labeling and rhythm identification in the SAFER screening program (Screening for Atrial Fibrillation with ECG to >Reduce Stroke) using Zenicor thumb-ECG devices.
+>• SAFER Study / SAFER Feasibility Study: Used for quality labeling and rhythm identification in the SAFER screening program (Screening for Atrial Fibrillation with ECG to Reduce Stroke) using Zenicor thumb-ECG devices.
 >
->• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 >clinical groups, and reduce manual ECG review workloads
+>• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 clinical groups, and reduce manual ECG review workloads
 
 ### Lund AFR Tracker
 
