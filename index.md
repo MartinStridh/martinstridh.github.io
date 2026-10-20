@@ -34,7 +34,7 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 
 > • Resolution & Output: It analyzes signals on a second-to-second basis, generating trends, segment-wise averages, and standard deviations over minutes, hours, or multi-day Holter recordings.
 > 
-> • Requirements: It is designed for 12-lead ECG systems (most commonly using lead V1) or specialized veterinary/Holter leads with a strong atrial signal.
+> • Requirements: It is designed for 12-lead ECG systems (most commonly using lead V1) or specialized Holter/esophagus/veterinary leads with a strong atrial signal.
 >
 >**Where Has It Been Used?**
 >
