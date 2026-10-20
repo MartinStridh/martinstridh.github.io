@@ -1,7 +1,7 @@
 ## Welcome!
 The Lund ECG Parser Research Community is an open research community dedicated to developing and applying the Lund ECG Parser software (formerly commercialized under the names Cardiolund ECG Parser and Cardiolund AFR Tracker) in ECG-related research and development.
 
-## What is Lund ECG Parser and Lund AFR Tracker?
+## Lund ECG Parser and Lund AFR Tracker in Short
 
 ### Lund ECG Parser
 The Lund ECG Parser is an automated software tool that transforms 1-lead to 12-lead electrocardiogram (ECG) signals (ranging from 10 seconds to weeks in duration) into detailed, machine-readable descriptions. Instead of acting purely as a diagnostic tool, it extracts metadata, performs beat detection and classification, measures intervals (such as heart rate, QTc, and RR variability), and categorizes signals into distinct clinical groups for use in AI, statistical analysis, and database filtering.
