@@ -10,7 +10,7 @@ html, body {
 /* 2. SÄTT RAMENS MAXBREDD, SKUGGA OCH CENTRERA DEN */
 .wrapper { 
   box-sizing: border-box !important; 
-  max-width: 1200px !important;      
+  max-width: 960px !important;      
   width: 94% !important;             /* Lämnar ett elegant och symmetriskt sidospel på stora skärmar */
   margin: 40px auto !important;      /* Centrerar ramen perfekt i mitten av webbläsarfönstret */
   display: block !important; 
