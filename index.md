@@ -22,6 +22,7 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 >
 >• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 categories, and reduce manual ECG review workloads.
 
+
 ### Lund AFR Tracker
 
 Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund ECG Parser that automatically calculates the Atrial Fibrillatory Rate (AFR) from ECG signals.
@@ -51,6 +52,7 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 > • Specific Drug Studies: It has been used to track and quantify atrial rate slowing and prediction of drug-induced conversion for established and novel antiarrhythmic agents—including flecainide, dofetilide, ranolazine, quinidine, AZD7009, SECRET and SECRET.
 >
 > • Predicting Success: A lower or dropping AFR during drug therapy generally indicates a higher likelihood of successful pharmacological or electrical cardioversion, whereas a high or unreduced AFR often correlates with drug resistance or early recurrence.
+
 
 ## How to use Lund ECG Parser and Lund AFR Tracker?
 
