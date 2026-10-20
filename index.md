@@ -48,7 +48,7 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 >
 > • Drug Action Monitoring: The AFR Tracker measures how fast or slow the atrial activation rate becomes following pharmacological intervention, acting as a non-invasive surrogate marker for changes in the atrial action potential duration and effective refractory period.
 > 
-> • Specific Drug Studies: It has been used to track and quantify atrial rate slowing and prediction of drug-induced conversion for established and novel antiarrhythmic agents—including flecainide, dofetilide, ranolazine, and quinidine.
+> • Specific Drug Studies: It has been used to track and quantify atrial rate slowing and prediction of drug-induced conversion for established and novel antiarrhythmic agents—including flecainide, dofetilide, ranolazine, quinidine, AZD7009, XXXXXX and XXXXXX.
 >
 > • Predicting Success: A lower or dropping AFR during drug therapy generally indicates a higher likelihood of successful pharmacological or electrical cardioversion, whereas a high or unreduced AFR often correlates with drug resistance or early recurrence.
 
