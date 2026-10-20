@@ -28,7 +28,7 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 
 >**Core Function**:
 
-> • It measures the repetition rate and intra-atrial organization of atrial fibrillatory waves (f-waves) in the ECG.
+> • It measures the repetition rate and the degree of organization of atrial fibrillatory waves (f-waves) in the ECG.
 
 > • Technical Process: It removes ventricular activity (QRS complexes and T-waves) via spatiotemporal QRST cancellation and applies sequential time-frequency tracking.
 
@@ -39,7 +39,9 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 >**Where Has It Been Used?**
 >
 > • Clinical & Research Studies: Used extensively in cardiology research to study atrial electrical properties and predict the outcomes of direct current (DC) cardioversion, ablation therapy, and spontaneous termination of paroxysmal atrial fibrillation (AF).
+> 
 > • Implantable & Long-Term Monitoring: Applied to extract f-wave/AFR data from implantable loop recorders (ILRs) and cardiac monitors to evaluate long-term AF burden and remodeling.
+> 
 > • Veterinary Cardiology: Widely validated and utilized in large-animal (equine) clinical studies to monitor atrial fibrillatory dynamics and post-cardioversion recurrence in horses with persistent AF.
 >
 >**Use in Antiarrhythmic Drug Response Studies**
