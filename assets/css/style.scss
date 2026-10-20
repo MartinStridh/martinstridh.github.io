@@ -240,3 +240,7 @@ header a:hover {
   color: #ba1b24 !important;           /* En något djupare vinröd vid hover */
   text-decoration: none !important;    /* Säkerställer att understrykningen inte dyker upp vid hover */
 }
+
+section, .wrapper > section {
+  background: #ffffff !important; /* Tvingar textrutan att bli helt solid vit */
+}
