@@ -24,6 +24,33 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 
 ### Lund AFR Tracker
 
+Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund ECG Parser that automatically calculates the Atrial Fibrillatory Rate (AFR) from electrocardiogram (ECG) signals.
+
+>**Core Function**:
+
+> • It measures the repetition rate and intra-atrial organization of atrial fibrillatory waves (f-waves) in the ECG.
+
+> • Technical Process: It removes ventricular activity (QRS complexes and T-waves) via spatiotemporal QRST cancellation and applies sequential time-frequency tracking.
+
+> • Resolution & Output: It analyzes signals on a second-to-second basis, generating trends, segment-wise averages, and standard deviations over minutes, hours, or multi-day Holter recordings.
+> 
+> • Requirements: It is designed for 12-lead ECG systems (most commonly using lead V1) or specialized veterinary/Holter leads with a strong atrial signal.
+>
+>**Where Has It Been Used?**
+>
+> • Clinical & Research Studies: Used extensively in cardiology research to study atrial electrical properties and predict the outcomes of direct current (DC) cardioversion, ablation therapy, and spontaneous termination of paroxysmal atrial fibrillation (AF).
+> • Implantable & Long-Term Monitoring: Applied to extract f-wave/AFR data from implantable loop recorders (ILRs) and cardiac monitors to evaluate long-term AF burden and remodeling.
+> • Veterinary Cardiology: Widely validated and utilized in large-animal (equine) clinical studies to monitor atrial fibrillatory dynamics and post-cardioversion recurrence in horses with persistent AF.
+>
+>**Use in Antiarrhythmic Drug Response Studies**
+>
+> • Drug Action Monitoring: The AFR Tracker measures how fast or slow the atrial activation rate becomes following pharmacological intervention, acting as a non-invasive surrogate marker for changes in the atrial action potential duration and effective refractory period.
+> 
+> • Specific Drug Studies: It has been used to track and quantify atrial rate slowing and prediction of drug-induced conversion for established and novel antiarrhythmic agents—including flecainide, dofetilide, ranolazine, and quinidine.
+>
+> • Predicting Success: A lower or dropping AFR during drug therapy generally indicates a higher likelihood of successful pharmacological or electrical cardioversion, whereas a high or unreduced AFR often correlates with drug resistance or early recurrence.
+
+## How to use Lund ECG Parser and Lund AFR Tracker
 
 
 > This is a blockquote following a header.
