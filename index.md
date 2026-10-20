@@ -3,7 +3,22 @@ The Lund ECG Parser Research Community is an open research community dedicated t
 
 ## What is Lund ECG Parser and Lund AFR Tracker?
 
-Lund ECG Parser is... 
+### Lund ECG Parser
+The Lund ECG Parser is an automated software tool that transforms 1-lead to 12-lead electrocardiogram (ECG) signals (ranging from 10 seconds to weeks in duration) into detailed, machine-readable descriptions. Instead of acting purely as a diagnostic tool, it extracts metadata, performs beat detection and classification, measures intervals (such as heart rate, QTc, and RR variability), and categorizes signals into distinct clinical groups for use in AI, statistical analysis, and database filtering.
+
+The Lund ECG Parser has been integrated into several commercial cardiac monitoring systems, clinical screening trials, and research datasets for automated 1-to-12 lead ECG rhythm analysis and atrial fibrillation (AF) detection:
+
+>Commercial & Medical Device Integrations
+>• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, >beat classification, and rhythm categorization.
+>• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation >detection.
+
+>Clinical Studies & Research Programs
+>• STROKESTOP Studies: Validated in landmark Swedish population screening studies for detecting atrial fibrillation.
+>• SAFER Study / SAFER Feasibility Study: Used for quality labeling and rhythm identification in the SAFER screening program (Screening for Atrial Fibrillation with ECG to >Reduce Stroke) using Zenicor thumb-ECG devices.
+>• General Clinical & AI Research: Employed by researchers and healthcare databases to generate machine-readable metadata, perform automated signal categorization into 13 >clinical groups, and reduce manual ECG review workloads
+
+### Lund AFR Tracker
+
 
 
 > This is a blockquote following a header.
