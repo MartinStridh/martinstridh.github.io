@@ -18,7 +18,7 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 >
 > • Patient Categorisation: Streamlines clinical workflows by automatically sorting and categorizing ECG segments or full recordings to optimize patient management.
 >
->**Commercial & Medical Device Integrations**:
+>**Previous Commercial & Medical Device Integrations**:
 >
 >• Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, beat classification, and rhythm categorization.
 >
