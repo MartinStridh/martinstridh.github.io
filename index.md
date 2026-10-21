@@ -8,7 +8,8 @@ The Lund ECG Parser is an automated software tool that transforms 1-lead to 12-l
 
 The Lund ECG Parser has been integrated into several commercial cardiac monitoring systems, clinical screening trials, and research datasets for automated ECG rhythm analysis and atrial fibrillation (AF) detection:
 
->** Core Functions
+>** Core Functions**
+>
 > • ECG Diagnostics/Phenotyping: Analyzes waveforms to detect heartbeats, classify normal or ectopic beats (SVES/VES), measure advanced intervals (HR, QTc, RR), and isolate P-waves for atrial activity tracking.
 >
 > • Machine Annotation: Generates structured, machine-readable metadata with precise timestamps, continuous lead quality assessment to flag noise, and smart adaptive thresholds to filter artifacts.
