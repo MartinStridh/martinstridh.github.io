@@ -55,7 +55,8 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 > • Predicting Success: A lower or dropping AFR during drug therapy generally indicates a higher likelihood of successful pharmacological or electrical cardioversion, whereas a high or unreduced AFR often correlates with drug resistance or early recurrence.
 
 <br>
-## How to use Lund ECG Parser and Lund AFR Tracker?
+
+### How to use Lund ECG Parser and Lund AFR Tracker?
 
 Please contact Martin Stridh (martin.stridh@bme.lth.se) for more information.
 
