@@ -56,7 +56,7 @@ Cardiolund AFR Tracker is a specialized ECG analysis software extension to Lund 
 
 <br>
 
-### How to use Lund ECG Parser and Lund AFR Tracker?
+## How to use Lund ECG Parser and Lund AFR Tracker?
 
 Please contact Martin Stridh (martin.stridh@bme.lth.se) for more information.
 
