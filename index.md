@@ -12,7 +12,7 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 >
 > • ECG Diagnostics/Phenotyping: Analyzes waveforms to detect heartbeats, classify normal or ectopic beats (SVES/VES), measure advanced intervals (HR, QTc, RR), and isolate P-waves for atrial activity tracking.
 >
-> • Machine Annotation: Generates structured, machine-readable metadata with precise timestamps, continuous lead quality assessment to flag noise, and smart adaptive thresholds to filter artifacts.
+> • Machine Annotation: Generates structured, machine-readable metadata with precise timestamps of arrhythmic events.
 >
 > • Database Content Analysis: Optimizes large-scale data mining in big patient databases, enabling custom algorithmic searches and providing rich metadata to train or validate AI and clinical decision models.
 >
