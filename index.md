@@ -10,9 +10,9 @@ The Lund ECG Parser has been integrated into several commercial cardiac monitori
 
 >**Commercial & Medical Device Integrations**:
 >
->• Zenicor Medical Systems: Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, beat classification, and rhythm categorization.
+>• Integrated into Zenicor's handheld thumb-ECG systems for remote cardiology diagnostics and stroke prevention to perform interval measurements, beat classification, and rhythm categorization.
 >
->• PulseOn Arrhythmia Monitor System: Integrated into PulseOn’s data management service to support wrist-worn optical (PPG) and ECG devices for outpatient atrial fibrillation detection.
+>• Integrated into PulseOn’s data management service to support wrist-worn ECG devices for outpatient atrial fibrillation detection.
 >
 >**Clinical Studies & Research Programs**:
 >
