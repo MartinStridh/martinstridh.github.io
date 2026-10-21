@@ -1,4 +1,4 @@
-## Welcome!
+## Welcome to the Community!
 The Lund ECG Parser Research Community is an open research community dedicated to developing and applying the Lund ECG Parser software (formerly commercialized under the names Cardiolund ECG Parser and Cardiolund AFR Tracker) in ECG-related research and development.
 
 ## What are Lund ECG Parser and Lund AFR Tracker?
