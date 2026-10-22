@@ -254,4 +254,13 @@ blockquote {
     margin: 10px 0;             /* Yttre marginal uppe och nere */
 }
 
-
+@media screen and (max-width: 960px) {
+    html, body {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    html body .wrapper {
+        margin: 10px auto !important; /* Tvingar fram 10px överallt */
+    }
+}
