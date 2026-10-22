@@ -9,13 +9,13 @@
 <div id="clean-mobile-drawer" class="custom-mobile-drawer">
   <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/join-community">Join the community</a></li>
-    <li><a href="/ECG-explained">Lund ECG Parser explained</a></li>
-    <li><a href="/AFR-explained">Lund AFR Tracker explained</a></li>
-    <li><a href="/package-description">Package description</a></li>
-    <li><a href="/downloads">Downloads</a></li>
-    <li><a href="/documentation">Documentation</a></li>
-    <li><a href="/publications">Publications</a></li>
+    <li><a href="/page1.html">Join the community</a></li>
+    <li><a href="/page2.html">Lund ECG Parser explained</a></li>
+    <li><a href="/page2.html">Lund AFR Tracker explained</a></li>
+    <li><a href="/page2.html">Package description</a></li>
+    <li><a href="/page2.html">Downloads</a></li>
+    <li><a href="/page2.html">Documentation</a></li>
+    <li><a href="/page2.html">Publications</a></li>
   </ul>
 </div>
 
