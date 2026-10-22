@@ -271,7 +271,7 @@ blockquote {
     /* 2. Vi placerar .wrapper i rad 2, vilket ger exakt 10px luft överst och underst */
     html body .wrapper {
         grid-row: 2 !important;
-        margin-top: 20px !important;
+        margin-top: 40px !important;
         margin-bottom: 0 !important;
         
         /* Säkerställ att temats dolda padding inte trycker ihop innehållet inuti */
