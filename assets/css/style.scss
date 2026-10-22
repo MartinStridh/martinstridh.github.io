@@ -253,3 +253,11 @@ blockquote {
     padding-bottom: 5px;
     margin: 10px 0;             /* Yttre marginal uppe och nere */
 }
+
+/* Tvingar toppmarginalen att vara 40px oavsett hur smalt fönstret blir */
+@media screen and (max-width: 960px) {
+    html body .wrapper {
+        margin-top: 10px !important;
+        margin-bottom: 40px !important;
+    }
+}
