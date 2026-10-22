@@ -254,13 +254,21 @@ blockquote {
     margin: 10px 0;             /* Yttre marginal uppe och nere */
 }
 
+/* ========================================================================== 
+   TOTAL NOLLSTÄLLNING OCH Tvingande 10PX TOPPMARGINAL PÅ ALLA SKÄRMAR
+   ========================================================================== */
 @media screen and (max-width: 960px) {
+    /* 1. Tvinga bort allt inbyggt mobil-tillägg i temat på själva sidan */
     html, body {
-        padding-top: 0 !important;
         margin-top: 0 !important;
+        padding-top: 0 !important;
     }
-    
+
+    /* 2. Tvinga .wrapper att ENBART ha 10px uppåt och nollställ eventuell padding */
     html body .wrapper {
-        margin: 10px auto !important; /* Tvingar fram 10px överallt */
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        /* Vissa teman lägger till padding på wrapper i mobilen, vi nollställer topp/botten */
+        padding-top: 0 !important; 
     }
 }
