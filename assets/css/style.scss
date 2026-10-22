@@ -260,7 +260,7 @@ blockquote {
 @media screen and (max-width: 960px) {
     /* 1. Vi gör om hela sidan till ett Grid och tvingar fram en 10px rad överst */
     html, body {
-        margin: 50px !important;
+        margin: 10px !important;
         padding: 0 !important;
         display: grid !important;
         grid-template-rows: 10px auto 10px !important;
