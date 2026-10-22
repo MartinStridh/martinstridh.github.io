@@ -56,8 +56,7 @@ The Lund AFR Tracker has been used extensively in cardiology research to study a
 
 ## How to use Lund ECG Parser and Lund AFR Tracker?
 
-For more information, please contact: 
-
+For more information, please contact:   
 Martin Stridh (martin.stridh@bme.lth.se) 
 
 _Principal Investigator and Project Leader_
