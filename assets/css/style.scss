@@ -255,26 +255,27 @@ blockquote {
 }
 
 /* ========================================================================== 
-   DEN ABSOLUTA LÖSNINGEN: SÄTT 10PX PÅ ROT-NIVÅ FÖR ATT LÅSA TOPPEN
+   THE NUCLEAR OPTION: TVINGA FRAM 10PX VIA GRID-LAYOUT I MOBILEN
    ========================================================================== */
-
-/* 1. Vi tvingar fram 10px mellanrum på själva webbläsarfönstret (HTML-nivå) */
-html {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    box-sizing: border-box !important;
-}
-
-/* 2. Vi ser till att inga dolda mobilregler i temat nollställer detta */
 @media screen and (max-width: 960px) {
+    /* 1. Vi gör om hela sidan till ett Grid och tvingar fram en 10px rad överst */
     html, body {
-        margin-top: 0px !important;
-        padding-top: 10px !important; /* Håller kvar de 10 pixlarna på mobilen */
+        margin: 0 !important;
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-rows: 10px auto 10px !important;
+        height: auto !important;
+        min-height: 100vh !important;
     }
-    
+
+    /* 2. Vi placerar .wrapper i rad 2, vilket ger exakt 10px luft överst och underst */
     html body .wrapper {
-        margin-top: 0px !important; /* Tar bort marginalen eftersom HTML sköter avståndet nu */
-        margin-bottom: 0px !important;
+        grid-row: 2 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        
+        /* Säkerställ att temats dolda padding inte trycker ihop innehållet inuti */
+        padding-top: 0 !important; 
     }
 }
 
