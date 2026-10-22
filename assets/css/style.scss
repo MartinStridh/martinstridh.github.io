@@ -255,21 +255,26 @@ blockquote {
 }
 
 /* ========================================================================== 
-   STRYPRIPPA ALLA INBYGGDA MOBILREGLER OCH LÅS TOPPEN TILL EXAKT 10PX
+   DEN ABSOLUTA LÖSNINGEN: SÄTT 10PX PÅ ROT-NIVÅ FÖR ATT LÅSA TOPPEN
    ========================================================================== */
+
+/* 1. Vi tvingar fram 10px mellanrum på själva webbläsarfönstret (HTML-nivå) */
+html {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Vi ser till att inga dolda mobilregler i temat nollställer detta */
 @media screen and (max-width: 960px) {
-    /* 1. Tvinga bort temats dolda mobilvaddering i topp och botten på själva sidan */
     html, body {
         margin-top: 0px !important;
-        padding-top: 0px !important;
-        margin-bottom: 0px !important;
-        padding-bottom: 0px !important;
+        padding-top: 10px !important; /* Håller kvar de 10 pixlarna på mobilen */
     }
-
-    /* 2. Tvinga ramen (.wrapper) att använda exakt 10px i marginal */
+    
     html body .wrapper {
-        margin: 10px auto !important; /* Ger 10px topp och botten överallt */
-        padding-top: 0px !important;  /* Nollställer eventuell inre topp-padding */
+        margin-top: 0px !important; /* Tar bort marginalen eftersom HTML sköter avståndet nu */
+        margin-bottom: 0px !important;
     }
 }
 
