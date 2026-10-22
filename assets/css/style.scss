@@ -254,29 +254,6 @@ blockquote {
     margin: 10px 0;             /* Yttre marginal uppe och nere */
 }
 
-/* ========================================================================== 
-   THE NUCLEAR OPTION: TVINGA FRAM 10PX VIA GRID-LAYOUT I MOBILEN
-   ========================================================================== */
-@media screen and (max-width: 960px) {
-    /* 1. Vi gör om hela sidan till ett Grid och tvingar fram en 10px rad överst */
-    html, body {
-        margin: 10px !important;
-        padding: 0 !important;
-        display: grid !important;
-        grid-template-rows: 10px auto 10px !important;
-        height: auto !important;
-        min-height: 100vh !important;
-    }
 
-    /* 2. Vi placerar .wrapper i rad 2, vilket ger exakt 10px luft överst och underst */
-    html body .wrapper {
-        grid-row: 2 !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        
-        /* Säkerställ att temats dolda padding inte trycker ihop innehållet inuti */
-        padding-top: 0 !important; 
-    }
-}
 
 
