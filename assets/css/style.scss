@@ -255,20 +255,21 @@ blockquote {
 }
 
 /* ========================================================================== 
-   TOTAL NOLLSTÄLLNING OCH Tvingande 10PX TOPPMARGINAL PÅ ALLA SKÄRMAR
+   STRYPRIPPA ALLA INBYGGDA MOBILREGLER OCH LÅS TOPPEN TILL EXAKT 10PX
    ========================================================================== */
 @media screen and (max-width: 960px) {
-    /* 1. Tvinga bort allt inbyggt mobil-tillägg i temat på själva sidan */
+    /* 1. Tvinga bort temats dolda mobilvaddering i topp och botten på själva sidan */
     html, body {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
     }
 
-    /* 2. Tvinga .wrapper att ENBART ha 10px uppåt och nollställ eventuell padding */
+    /* 2. Tvinga ramen (.wrapper) att använda exakt 10px i marginal */
     html body .wrapper {
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-        /* Vissa teman lägger till padding på wrapper i mobilen, vi nollställer topp/botten */
-        padding-top: 0 !important; 
+        margin: 10px auto !important; /* Ger 10px topp och botten överallt */
+        padding-top: 0px !important;  /* Nollställer eventuell inre topp-padding */
     }
 }
+
