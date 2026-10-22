@@ -59,7 +59,8 @@ The Lund AFR Tracker has been used extensively in cardiology research to study a
 For more information, please contact: 
 
 Martin Stridh (martin.stridh@bme.lth.se) 
-_Principal investigator and Project manager_
+
+_Principal Investigator and Project Leader_
 
 
 <!-- Den globala hamburgerknappen för alla skärmar -->
