@@ -1,4 +1,8 @@
-## Welcome to the Community!
+## Welcome to the Lund ECG Parser Community!
+
+![History of the software](thestory.jpg)
+
+![About the software](history.jpg)
 
 <!-- Den globala hamburgerknappen för alla skärmar -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
