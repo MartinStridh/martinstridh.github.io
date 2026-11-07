@@ -1,4 +1,4 @@
-## Welcome to the Lund ECG Parser Community!
+## Welcome to the Community!
 
 ![History of the software](thestory.jpg)
 
