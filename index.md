@@ -2,7 +2,7 @@
 
 ![History of the software](thestory.jpg)
 
-![About the software](history.jpg)
+![About the software](arrhythmia.jpg)
 
 <!-- Den globala hamburgerknappen för alla skärmar -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
