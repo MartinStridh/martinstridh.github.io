@@ -1,8 +1,14 @@
 ## Welcome to the Community!
 
+Text 1
+
 ![History of the software](thestory.jpg)
 
+Text 2
+
 ![About the software](arrhythmia.jpg)
+
+Text 3
 
 <!-- Den globala hamburgerknappen för alla skärmar -->
 <button class="fixed-hamburger-btn" id="triggerMobileMenu">☰ Menu</button>
